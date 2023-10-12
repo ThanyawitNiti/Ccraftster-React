@@ -31,7 +31,7 @@ export default function Header() {
             </Link>
             <div className="flex items-center lg:order-2">
               <Link
-                to="/Login"
+                to="/login"
                 className=" dark:text-white hover:bg-green-400 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
               >
                 Log in
@@ -59,7 +59,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    to="/ProductPage"
+                    to="/productpage"
                     className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white focus:ring-4 focus:ring-gray-300  hover:text-red-400"
                   >
                     Product
@@ -67,7 +67,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    to="/ProfilePage"
+                    to="/profilepage"
                     className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white focus:ring-4 focus:ring-gray-300  hover:text-red-400"
                   >
                     Profile
@@ -75,7 +75,7 @@ export default function Header() {
                 </li>
                 <li>
                   <Link
-                    to="/CartPage"
+                    to="/cartpage"
                     className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white focus:ring-4 focus:ring-gray-300  hover:text-red-400"
                   >
                     Cart

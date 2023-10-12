@@ -5,6 +5,8 @@ import ProductPage from "../pages/ProductPage.jsx";
 import Layout from "../layout/Layout.jsx";
 import ProfilePage from "../pages/ProfilePage.jsx";
 import CartPage from "../pages/CartPage.jsx";
+import Authenticated from "../features/auth/Authenticated.jsx";
+import RegisterPage from "../pages/RegisterPage.jsx";
 
 const router = createBrowserRouter([
     // {
@@ -27,8 +29,8 @@ const router = createBrowserRouter([
             {path:"/login",element:<LoginPage/>},
             {path:"/productpage",element:<ProductPage/>},
             {path:"/profilepage",element:<ProfilePage/>},
-            {path:"/cartpage",element:<CartPage/>}
-            // {path:"/register",element:<RegisterPage/>}
+            {path:"/cartpage",element:<CartPage/>},
+            {path:"/register",element:<RegisterPage/>}
             // {path:"/login",element:<LogoutPage/>},
         ]
     }

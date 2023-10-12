@@ -2,6 +2,7 @@ import { useState } from "react";
 import LoginInput from "./LoginInput";
 import { useAuth } from "../../hooks/use-auth";
 import { toast } from "react-toastify"
+import { Navigate } from "react-router-dom";
 // import { Navigate } from "react-router-dom";
 
 export default function LoginForm() {
@@ -11,21 +12,20 @@ export default function LoginForm() {
   });
 
   const {login} =useAuth()
- 
-
+  
   const handleSubmitForm = (e) => {
     e.preventDefault();
     login(input).catch((err)=>{
       // console.log(err)
       toast.error(err.response.data.message);
-      // console.log(err.response.data.message)
+      // console.log(err.response.data);
+      // console.log(err.response)
     })
   };
-
-//   console.log(checkUser)
-//   if(checkUser){
-// <Navigate to="/productpage"/>
-//   }
+  const{checkUser} =useAuth()
+  if(checkUser){
+    return<Navigate to='/' />
+  }
   return (
     <form className="flex justify-center flex-1 align-middle gap-5 h-full items-center flex-col
     " onSubmit={handleSubmitForm}>
@@ -38,6 +38,7 @@ export default function LoginForm() {
         
         <LoginInput
           placeholder="Password"
+          type="password"
           value={input.password}
           onChange={(e) => setInput({ ...input, password: e.target.value })}
         />

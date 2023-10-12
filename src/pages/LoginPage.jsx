@@ -1,11 +1,13 @@
 import LoginContent from "../features/auth/LoginContent";
 import LoginForm from "../features/auth/LoginForm";
+import { useAuth } from "../hooks/use-auth";
 import RegisterPage from "../pages/RegisterPage"
 
 export default function LoginPage() {
+  
   return (
     <>
-      <div className=" flex gap-4 pl-3 ">
+        <div className=" flex gap-4 pl-3 ">
         
         <LoginContent/>
           
@@ -24,5 +26,5 @@ export default function LoginPage() {
 
       </div>
     </>
-  );
+  )
 }

@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import HeaderButton from "./HeaderButton";
+import { useAuth } from "../hooks/use-auth";
 
 export default function Header() {
+
+  
   return (
     <>
       {/* <div className="flex bg-blue-400 px-4">
@@ -15,7 +18,8 @@ export default function Header() {
     <div className="border border-red-400">Logout</div>
     
     </div> */}
-      {/* <HeaderButton /> */}
+    
+
       <div>
         <nav className="bg-green-200 rounded-sm border-gray-200 px-4 lg:px-6 py-2.5">
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-full">

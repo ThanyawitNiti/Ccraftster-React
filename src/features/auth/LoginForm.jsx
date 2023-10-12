@@ -2,6 +2,7 @@ import { useState } from "react";
 import LoginInput from "./LoginInput";
 import { useAuth } from "../../hooks/use-auth";
 import { toast } from "react-toastify"
+// import { Navigate } from "react-router-dom";
 
 export default function LoginForm() {
   const [input, setInput] = useState({
@@ -21,6 +22,10 @@ export default function LoginForm() {
     })
   };
 
+//   console.log(checkUser)
+//   if(checkUser){
+// <Navigate to="/productpage"/>
+//   }
   return (
     <form className="flex justify-center flex-1 align-middle gap-5 h-full items-center flex-col
     " onSubmit={handleSubmitForm}>

@@ -29,7 +29,8 @@ export default function AuthContextProvider({ children }) {
       const res = await axios.post("/auth/login",credential)
       console.log(res)
       addAccessToken(res.data.accessToken)
-      setCheckUser(res.data.accessToken)
+      setCheckUser(res.data.user)
+
     }
 
     const register = async registerInputObj =>{
@@ -39,10 +40,10 @@ export default function AuthContextProvider({ children }) {
     }
 
 
-
+console.log(checkUser)
   return (
   <AuthContext.Provider
-  value={{login,register}}
+  value={{login,register,checkUser}}
   >{children}</AuthContext.Provider>
   )
 }

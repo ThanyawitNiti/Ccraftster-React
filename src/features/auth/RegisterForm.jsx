@@ -26,7 +26,7 @@ const validateRegister = (input) => {
   });
 
   if (error) {
-    console.log(error.details[1].message);
+    // console.log(error.details[1].message);
     const result = error.details.reduce((acc, el) => {
       const { message, path } = el;
       acc[path[0]] = message;
@@ -58,6 +58,8 @@ export default function RegisterForm() {
     e.preventDefault();
     const validationErrorObj = validateRegister(input);
     if (validationErrorObj) {
+        validationErrorObj.password = "Sorry na !!! Password must contain least one letter, one number and one special character."
+        validationErrorObj.confirmPassword = "Password Do not match Bro!!"
       return setError(validationErrorObj);
     }
     setError({});

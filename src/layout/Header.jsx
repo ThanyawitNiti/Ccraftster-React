@@ -19,7 +19,7 @@ export default function Header() {
     </div> */}
 
       <div>
-        <nav className="bg-green-200 rounded-sm border-gray-200 px-4 lg:px-6 py-2.5">
+        <nav className="bg-cGreen rounded-sm border-gray-200 px-4 lg:px-6 py-2.5">
           <div className="flex flex-wrap justify-between items-center mx-auto max-w-full">
             <Link to="/" className="flex items-center">
               <img
@@ -34,7 +34,7 @@ export default function Header() {
             <div className="flex items-center lg:order-2">
               <Link
                 to="/login"
-                className=" dark:text-white hover:bg-green-400 focus:ring-2 focus:ring-violet-300 focus:border-violet-300 focus:bg-yellow-100 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700  dark:focus:ring-gray-800"
+                className=" dark:text-white hover:bg-cdGreen focus:ring-2 focus:ring-violet-300 focus:border-violet-300 focus:bg-yellow-100 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700  dark:focus:ring-gray-800"
               >
                 Log in
               </Link>

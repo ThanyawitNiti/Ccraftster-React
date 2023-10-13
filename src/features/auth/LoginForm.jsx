@@ -45,7 +45,7 @@ export default function LoginForm() {
         
       </div>
       <div className="gap-2 flex flex-col bordeborder-red-400 items-center  w-full">
-      <button className=" bg-green-300 w-52 h-10 rounded-md hover:bg-green-500">Login</button>
+      <button className=" bg-cGreen w-52 h-10 rounded-md hover:bg-cdGreen border border-color-red">Login</button>
       
       </div>
     </form>

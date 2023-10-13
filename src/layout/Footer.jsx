@@ -6,7 +6,7 @@ import { BsQrCode } from "react-icons/bs";
 export default function Footer() {
   return (
     <>
-      <footer className="flex flex-col items-center text-center text-black font-semibold bg-green-200 mt-10 rounded-lg">
+      <footer className="flex flex-col items-center text-center text-black font-semibold bg-cGreen mt-10 rounded-lg">
         <div className="container pt-4 flex justify-center gap-10">
           <div className="mb-2 flex justify-center gap-8">
             <div>
@@ -16,7 +16,7 @@ export default function Footer() {
             </div>
             <div>
               <Link
-                to="https://shopee.co.th/craftyhands.handmade"
+                to="https://shopee.co.th/ccraftster"
                 target="_blank"
               >
                 <SiShopee className="w-8 h-8" />

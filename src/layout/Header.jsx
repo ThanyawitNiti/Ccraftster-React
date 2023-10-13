@@ -3,8 +3,7 @@ import HeaderButton from "./HeaderButton";
 import { useAuth } from "../hooks/use-auth";
 
 export default function Header() {
-  const { checkUser } = useAuth();
-
+  const { checkUser,logout } = useAuth();
   return (
     <>
       {/* <div className="flex bg-blue-400 px-4">
@@ -42,7 +41,8 @@ export default function Header() {
 
               <Link
                 to="/"
-                className=" dark:text-white hover:bg-red-400 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+                className=" dark:text-white hover:bg-red-400  font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none"
+                onClick={logout}
               >
                 Log out
               </Link>

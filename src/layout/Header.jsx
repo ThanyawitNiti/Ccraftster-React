@@ -3,8 +3,8 @@ import HeaderButton from "./HeaderButton";
 import { useAuth } from "../hooks/use-auth";
 
 export default function Header() {
+  const { checkUser } = useAuth();
 
-  
   return (
     <>
       {/* <div className="flex bg-blue-400 px-4">
@@ -18,7 +18,6 @@ export default function Header() {
     <div className="border border-red-400">Logout</div>
     
     </div> */}
-    
 
       <div>
         <nav className="bg-green-200 rounded-sm border-gray-200 px-4 lg:px-6 py-2.5">
@@ -36,7 +35,7 @@ export default function Header() {
             <div className="flex items-center lg:order-2">
               <Link
                 to="/login"
-                className=" dark:text-white hover:bg-green-400 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+                className=" dark:text-white hover:bg-green-400 focus:ring-2 focus:ring-violet-300 focus:border-violet-300 focus:bg-yellow-100 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700  dark:focus:ring-gray-800"
               >
                 Log in
               </Link>
@@ -48,15 +47,12 @@ export default function Header() {
                 Log out
               </Link>
             </div>
-            <div
-              className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1"
-              id="mobile-menu-2"
-            >
+            <div className=" justify-between items-center w-full lg:flex lg:w-auto lg:order-1">
               <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                 <li>
                   <Link
                     to="/"
-                    className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white focus:ring-4 focus:ring-gray-300 hover:text-red-400"
+                    className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white focus:ring-2 focus:ring-violet-300 focus:border-violet-300 focus:bg-yellow-100 hover:text-red-400"
                   >
                     Home
                   </Link>
@@ -64,25 +60,28 @@ export default function Header() {
                 <li>
                   <Link
                     to="/productpage"
-                    className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white focus:ring-4 focus:ring-gray-300  hover:text-red-400"
+                    className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white focus:ring-2 focus:ring-violet-300 focus:border-violet-300 focus:bg-yellow-100  hover:text-red-400"
                   >
                     Product
                   </Link>
                 </li>
-                <li>
+                
+                  <li>
+                    <Link
+                      to="/cartpage"
+                      className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white focus:ring-1 focus:bg-yellow-100  hover:text-red-400"
+                    >
+                      Cart
+                    </Link>
+                  </li>
+                  <li>
                   <Link
                     to="/profilepage"
-                    className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white focus:ring-4 focus:ring-gray-300  hover:text-red-400"
+                    className={` ${
+                      checkUser ? "" : "hidden"
+                    }  block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white focus:ring-2 focus:ring-violet-300 focus:border-violet-300 focus:bg-yellow-100  hover:text-red-400`}
                   >
                     Profile
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    to="/cartpage"
-                    className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white focus:ring-4 focus:ring-gray-300  hover:text-red-400"
-                  >
-                    Cart
                   </Link>
                 </li>
               </ul>

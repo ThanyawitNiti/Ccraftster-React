@@ -5,4 +5,5 @@ export default function NotAuthenticated({ children }) {
   if (!checkUser) {
     return children;
   }
+  
 }

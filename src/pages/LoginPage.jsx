@@ -5,6 +5,10 @@ import RegisterPage from "../pages/RegisterPage"
 
 export default function LoginPage() {
   
+  //if auth show all hide login page
+  //if unauth Show all ,Hide profile logout
+  //login but stay same page
+  
   return (
     <>
         <div className=" flex gap-4 pl-3 ">

@@ -3,22 +3,22 @@ import RegisterInput from "./RegisterInput";
 import { useState } from "react";
 import { useAuth } from "../../hooks/use-auth";
 import InputErrorMessage from "./InputErrorMessage";
+import { Children } from "react";
 
 const registerSchema = Joi.object({
-  first_name: Joi.string().trim().required().label('First Name'),
-  last_name: Joi.string().trim().required().label('Last Name'),
+  first_name: Joi.string().trim().required().label("First Name"),
+  last_name: Joi.string().trim().required().label("Last Name"),
   email: Joi.string().required().label("E-mail"),
   phone: Joi.string()
     .pattern(/^[0-9]{10}$/)
-    .required().label('Phone Number'),
+    .required()
+    .label("Phone Number"),
   password: Joi.string()
     .pattern(/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,30}$/)
     .trim()
     .required(),
   confirmPassword: Joi.string().valid(Joi.ref("password")).trim().required(),
 });
-
-
 
 const validateRegister = (input) => {
   const { error } = registerSchema.validate(input, {
@@ -33,11 +33,8 @@ const validateRegister = (input) => {
       return acc;
     }, {});
     return result;
-    
-}
-
+  }
 };
-
 
 export default function RegisterForm() {
   const [input, setInput] = useState({
@@ -49,17 +46,22 @@ export default function RegisterForm() {
     confirmPassword: "",
   });
 
-//   console.log(input)
+  //   console.log(input)
   const [error, setError] = useState({});
 
   const { register } = useAuth();
 
   const handleSubmitForm = (e) => {
     e.preventDefault();
-    const validationErrorObj = validateRegister(input);
+    const validationErrorObj = validateRegister(input, {
+      abortEarly: false,
+    });
     if (validationErrorObj) {
-        validationErrorObj.password = "Sorry na !!! Password must contain least one letter, one number and one special character."
-        validationErrorObj.confirmPassword = "Password Do not match Bro!!"
+      validationErrorObj.email = "Email should contain @example.com"
+      validationErrorObj.phone = "Phone is not allowed to be empty and must be 'number'"
+      validationErrorObj.password =
+        "Sorry na !!! Password must contain least one letter, one number and one special character.";
+      validationErrorObj.confirmPassword = "Password Do not match Bro!!";
       return setError(validationErrorObj);
     }
     setError({});
@@ -89,7 +91,7 @@ export default function RegisterForm() {
             hasError={error.first_name}
           />
         </div>
-          {error.first_name && <InputErrorMessage message={error.first_name}/> }
+        {error.first_name && <InputErrorMessage message={error.first_name} />}
         <div>
           <RegisterInput
             placeholder="Last name"
@@ -99,7 +101,7 @@ export default function RegisterForm() {
             hasError={error.last_name}
           />
         </div>
-          {error.last_name && <InputErrorMessage message={error.last_name}/> }
+        {error.last_name && <InputErrorMessage message={error.last_name} />}
         <div>
           <RegisterInput
             placeholder="example@gmail.com"
@@ -109,7 +111,7 @@ export default function RegisterForm() {
             hasError={error.email}
           />
         </div>
-        {error.email && <InputErrorMessage message={error.email}/> }
+        {error.email && <InputErrorMessage message={error.email} />}
 
         <div>
           <RegisterInput
@@ -120,7 +122,7 @@ export default function RegisterForm() {
             hasError={error.phone}
           />
         </div>
-        {error.phone && <InputErrorMessage message={error.phone}/> }
+        {error.phone && <InputErrorMessage message={error.phone} />}
 
         <div>
           <RegisterInput
@@ -132,7 +134,7 @@ export default function RegisterForm() {
             hasError={error.password}
           />
         </div>
-        {error.password && <InputErrorMessage message={error.password}/> }
+        {error.password && <InputErrorMessage message={error.password} />}
         <div>
           <RegisterInput
             placeholder="Confirm password"
@@ -143,7 +145,9 @@ export default function RegisterForm() {
             hasError={error.confirmPassword}
           />
         </div>
-        {error.confirmPassword && <InputErrorMessage message={error.confirmPassword}/> }
+        {error.confirmPassword && (
+          <InputErrorMessage message={error.confirmPassword} />
+        )}
 
         <div className="gap-2 mt-5 flex flex-col bordeborder-red-400 items-center  w-full">
           <button className=" bg-green-300 w-52 h-10 rounded-md hover:bg-green-500">

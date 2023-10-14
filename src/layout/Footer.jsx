@@ -27,6 +27,15 @@ export default function Footer() {
                 <BsQrCode className="w-8 h-8" />
               </Link>
             </div>
+            <div>
+              <Link to="https://www.lazada.co.th/shop/ccraftster/" 
+              target="_blank"
+              >
+                <div className="w-20 mb-2 px-1 pb-4 h-10 rounded-full ">
+                <img src="src\assets\Pics\Logo\pngwing.com.png" />
+                </div>
+              </Link>
+            </div>
           </div>
           <div className="mb-2 flex justify-center gap-3">
             <div className=" w-10 h-10  ">

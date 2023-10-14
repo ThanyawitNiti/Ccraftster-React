@@ -3,6 +3,7 @@ import LoginInput from "./LoginInput";
 import { useAuth } from "../../hooks/use-auth";
 import { toast } from "react-toastify"
 import { Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 // import { Navigate } from "react-router-dom";
 
 export default function LoginForm() {
@@ -22,10 +23,8 @@ export default function LoginForm() {
       // console.log(err.response)
     })
   };
-  const{checkUser} =useAuth()
-  if(checkUser){
-    return<Navigate to='/' />
-  }
+
+ 
   return (
     <form className="flex justify-center flex-1 align-middle gap-5 h-full items-center flex-col
     " onSubmit={handleSubmitForm}>
@@ -45,6 +44,7 @@ export default function LoginForm() {
         
       </div>
       <div className="gap-2 flex flex-col bordeborder-red-400 items-center  w-full">
+      
       <button className=" bg-cGreen w-52 h-10 rounded-md hover:bg-cdGreen border border-color-red">Login</button>
       
       </div>

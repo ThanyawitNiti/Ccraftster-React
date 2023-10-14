@@ -5,7 +5,7 @@ import Route from "./router/Route";
 function App() {
   return (
     <>
-      <Route />
+    <Route />
       <ToastContainer
         position="bottom-center"
         autoClose={5000}

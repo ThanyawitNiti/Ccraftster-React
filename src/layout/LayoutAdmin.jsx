@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Header from "./Header";
+import HeaderAdmin from "../pagesadmin/HeaderAdmin";
 import Footer from "./Footer";
 
 
@@ -7,7 +7,7 @@ export default function LayoutAdmin() {
   
     return (
         <>
-          <Header/>
+          <HeaderAdmin/>
           <Outlet />
           <Footer/>
         </>

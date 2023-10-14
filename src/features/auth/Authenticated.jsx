@@ -10,16 +10,9 @@ export default function Authenticated({children}) {
         return <Navigate to='/admin'/>
     }
     if(checkUser.role ==='USER'){
-        return <Navigate to='/user'/>
+        return children
     }
     
     
-    // if(checkUser.role === 'ADMIN'){
-    //     console.log(checkUser.role)
-    //     return <Navigate to='/admin'/>
-    // }
-    // else (checkUser || !checkUser)
-    //     // return <Navigate to ='/login'/>
-    //     return 
     
 }

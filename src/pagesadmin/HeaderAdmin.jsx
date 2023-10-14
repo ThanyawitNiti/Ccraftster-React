@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import HeaderButton from "./HeaderButton";
 import { useAuth } from "../hooks/use-auth";
 
 export default function Header() {
@@ -62,7 +61,7 @@ export default function Header() {
 
                 <li>
                   <Link
-                    to="/productpage"
+                    to="/admin/productpage"
                     className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white focus:ring-2 focus:ring-violet-300 focus:border-violet-300 focus:bg-yellow-100  hover:text-red-400"
                   >
                     Product
@@ -71,23 +70,14 @@ export default function Header() {
 
                 <li>
                   <Link
-                    to="/cartpage"
+                    to="/admin/inventory"
                     className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white focus:ring-1 focus:bg-yellow-100  hover:text-red-400"
                   >
-                    Cart
+                    Inventory Management
                   </Link>
                 </li>
 
-                <li>
-                  <Link
-                    to="/profilepage"
-                    className={` ${
-                      checkUser ? "" : "hidden"
-                    }  block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white focus:ring-2 focus:ring-violet-300 focus:border-violet-300 focus:bg-yellow-100  hover:text-red-400`}
-                  >
-                    Profile
-                  </Link>
-                </li>
+
               </ul>
             </div>
           </div>

@@ -12,6 +12,7 @@ import AdminAuthenticated from "../features/auth/AdminAuthenticated.jsx";
 import LayoutAdmin from "../layout/LayoutAdmin.jsx";
 import UserOne from "../pageuser/UserOne.jsx";
 import UserAuthenticated from "../features/auth/UserAuthenticated.jsx";
+import InventoryAdmin from "../pagesadmin/InventoryAdmin.jsx";
 const router = createBrowserRouter([
   {
     path: "/admin",
@@ -25,9 +26,10 @@ const router = createBrowserRouter([
     children: [
       //   { path: "/admin", element: <HomePage /> },
       //   { path: "/productpage", element: <ProductPage /> },
-      { path: "/admin", element: <AdminOne /> },
-      // {path:"/productpage",element:<ProductPage/>},
-      //   {path:"/admin/login",element:<LoginPage/>},
+      { path: "/admin", element: <HomePage /> },
+      { path: "/admin/productpage", element: <ProductPage /> },
+      { path: "/admin/inventory", element: <InventoryAdmin /> },
+      // {path:"/admin/login",element:<LoginPage/>},
       // {path:"/profilepage",element:<LoginPage/>},
       // {path:"/cartpage",element:<CartPage/>},
     ],
@@ -51,15 +53,21 @@ const router = createBrowserRouter([
       // {path:"/login",element:<LogoutPage/>},
     ],
   },
-  {
-    path: "/user",
-    element: (
-      <UserAuthenticated>
-        <Layout />
-      </UserAuthenticated>
-    ),
-    children: [{ path: "/user", element: <UserOne /> }],
-  },
+  // {
+  //   path: "/user",
+  //   element: (
+  //     <UserAuthenticated>
+  //       <Layout />
+  //     </UserAuthenticated>
+  //   ),
+  //   children: [
+  //     { path: "/user", element: <HomePage /> },
+  //     { path: "/user/productpage", element: <ProductPage /> },
+  //     { path: "/user/profilepage", element: <ProfilePage /> },
+  //     { path: "/user/login", element: <LoginPage /> },
+  //     { path: "/user/cartpage", element: <CartPage /> },
+  //   ],
+  // },
 ]);
 
 export default function Route() {

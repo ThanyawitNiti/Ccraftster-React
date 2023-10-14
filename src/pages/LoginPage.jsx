@@ -20,8 +20,6 @@ export default function LoginPage() {
 
         <div className="flexitems-center justify-center ">
           <LoginForm />
-          {/* <div>Register Component</div> */}
-          {/* <LoginForm/> */}
         </div>
         <div className="mt-2">
           <RegisterPage/>

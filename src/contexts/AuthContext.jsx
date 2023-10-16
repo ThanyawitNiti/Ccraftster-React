@@ -12,6 +12,7 @@ export const AuthContext = createContext();
 
 export default function AuthContextProvider({ children }) {
   const [checkUser, setCheckUser] = useState(null);
+
   useEffect(() => {
     if (getAccessToken()) {
       axios
@@ -42,6 +43,9 @@ export default function AuthContextProvider({ children }) {
     removeAccessToken();
     setCheckUser(null);
   };
+
+ 
+
 
   return (
     <AuthContext.Provider value={{ login, register, checkUser, logout }}>

@@ -14,6 +14,7 @@ export default function AddItem({uploadProduct}) {
       <span className="font-bold">ADDITEM</span>
       <MdAddPhotoAlternate className="w-10 h-7" />
     </AddItemButton>
+    
     <Modal
     open={isOpen}
     title="Add Product"

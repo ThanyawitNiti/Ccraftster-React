@@ -20,7 +20,7 @@ export default function Header() {
               </span>
             </Link>
 
-            <div className="flex items-center lg:order-2">
+            <div className="flex items-center lg:order-3">
               {checkUser ? (
                 <Link
                   to="/"

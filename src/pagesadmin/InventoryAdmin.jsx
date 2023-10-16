@@ -12,6 +12,14 @@ export default function InventoryAdmin() {
     const newItem = res.data.addItem;
     setAllItem([newItem, ...allItem]);
   };
+  const deleteProduct = async (productId) => {
+    try {
+      await axios.delete(`/admin/${productId}`);
+      setAllItem(allItem.filter((el) => el.id !== productId));
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   useEffect(() => {
     axios
@@ -34,7 +42,7 @@ export default function InventoryAdmin() {
         <div className="flex  justify-center pt-3 pb-3">
           <AddItem uploadProduct={uploadProduct} />
         </div>
-        <ListItem allItem={allItem} />
+        <ListItem allItem={allItem} deleteProduct={deleteProduct} />
       </div>
     </>
   );

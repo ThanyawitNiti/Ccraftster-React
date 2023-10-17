@@ -24,6 +24,13 @@ export default function AdminContextProvider({children}) {
     }
   };
 
+  const editProduct = async (data) =>{
+    const res = await axios.patch('/:productId',data)
+    const editProduct = res.data.doneEditProductByAdmin
+    setAllItem([editProduct,...allItem])
+  }
+
+
   useEffect(() => {
     axios
       .get("/admin/item")
@@ -34,9 +41,11 @@ export default function AdminContextProvider({children}) {
         console.log(err);
       });
   }, []);
+
+
   return (
     <>
-    <AdminContext.Provider value={{allItem,deleteProduct,uploadProduct,setAllItem}}>
+    <AdminContext.Provider value={{allItem,deleteProduct,uploadProduct,setAllItem,editProduct}}>
         {children}
     </AdminContext.Provider>      
     

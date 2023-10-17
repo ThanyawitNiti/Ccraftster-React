@@ -12,7 +12,7 @@ export default function LoginForm() {
     password: "",
   });
 
-  const {login} =useAuth()
+  const {login,checkUser} =useAuth()
   
   const handleSubmitForm = (e) => {
     e.preventDefault();
@@ -23,6 +23,11 @@ export default function LoginForm() {
       // console.log(err.response)
     })
   };
+
+  if(checkUser){
+  return <Navigate to ='/'/>
+  }
+
   
 
 

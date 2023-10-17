@@ -12,6 +12,8 @@ export default function AdminContextProvider({children}) {
 
   const [isOpen,setIsOpen] = useState(false)
 
+
+
   const uploadProduct = async (data) => {
     const res = await axios.post("/admin", data);
     const newItem = res.data.addItem;
@@ -25,14 +27,28 @@ export default function AdminContextProvider({children}) {
       console.log(err);
     }
   };
+console.log("first")
 
-  const editProduct = async (data) =>{
-    const res = await axios.patch('/:productId',data)
-    const editProduct = res.data.doneEditProductByAdmin
-    setAllItem([editProduct,...allItem])
+console.log(allItem)
+
+  const editProduct = async (productId,data) =>{
+    try{
+      const res = await axios.patch(`/admin/${productId}`,data)
+      const editProduct = res.data.doneEditProductByAdmin
+
+      const indexEditProduct =allItem.findIndex((el)=>el.id == editProduct.id)
+      allItem.splice(indexEditProduct,1,editProduct)
+      
+      // console.log(`###########${allItem}`)
+      setAllItem([...allItem])
+      // setAllItem([...allItem,...editProduct])
+
+    } catch(err){
+      console.log(err)
+    }
   }
 
-
+console.log(`###########${allItem}`)
   useEffect(() => {
     axios
       .get("/admin/item")

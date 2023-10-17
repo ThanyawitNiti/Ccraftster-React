@@ -1,6 +1,6 @@
 import { useAdminContext } from "../hooks/admin-context-hook";
 
-import EditButton from "./EditButton";
+import FormInsideModal from "./FormInsideModal";
 import Modal from "../component/Modal";
 import { useState } from "react";
 export default function DetailItem({ itemObj }) {
@@ -30,19 +30,21 @@ export default function DetailItem({ itemObj }) {
             className="border-2 border-gray-300 w-10 mx-3"
             onClick={() => setIsOpen(true)}
           >
-            Edit
+            Edit {itemObj.id}
             <Modal
               title="Edit Product"
               open={isOpen}
            
               onClose={() => {
-               console.log('dasd')
                 setIsOpen(()=>{setIsOpen(false)})}}
+
+              
                 
             >
-              <EditButton
-                // onSuccess={() => setIsOpen(false)}
+              <FormInsideModal
+                onSuccess={() => setIsOpen(false)}
                 className="bg-red-500"
+                itemObj={itemObj}
               />
             </Modal>
           </td>

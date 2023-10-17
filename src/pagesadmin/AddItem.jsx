@@ -4,12 +4,14 @@ import { MdAddPhotoAlternate } from "react-icons/md";
 import AddItemButton from "./AddItemButton";
 import Modal from '../component/Modal'
 import AddItemModalPage from "./AddItemModalPage";
+import { useAdminContext } from "../hooks/admin-context-hook";
 
 
 
 export default function AddItem() {
     const [isOpen,setIsOpen] = useState(false)
     
+    // const {setIsOpen,isOpen} =useAdminContext()
    
   return (
     <>

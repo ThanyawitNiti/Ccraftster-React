@@ -10,6 +10,8 @@ export const AdminContext = createContext()
 export default function AdminContextProvider({children}) {
   const [allItem, setAllItem] = useState([]);
 
+  const [isOpen,setIsOpen] = useState(false)
+
   const uploadProduct = async (data) => {
     const res = await axios.post("/admin", data);
     const newItem = res.data.addItem;
@@ -45,7 +47,7 @@ export default function AdminContextProvider({children}) {
 
   return (
     <>
-    <AdminContext.Provider value={{allItem,deleteProduct,uploadProduct,setAllItem,editProduct}}>
+    <AdminContext.Provider value={{allItem,deleteProduct,uploadProduct,setAllItem,editProduct,setIsOpen,isOpen}}>
         {children}
     </AdminContext.Provider>      
     

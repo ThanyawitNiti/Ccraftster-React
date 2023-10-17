@@ -1,7 +1,8 @@
 import { useState, useRef } from "react";
 import axios from "../config/axios";
 import Loading from "../component/Loading";
-export default function AddItemModalPage({ onSubmit, onSuccess }) {
+import { useAdminContext } from "../hooks/admin-context-hook";
+export default function AddItemModalPage({ onSuccess }) {
   const [listItem, setListItem] = useState({
     product_name: "",
     price: "",
@@ -10,6 +11,8 @@ export default function AddItemModalPage({ onSubmit, onSuccess }) {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   //   const fileEl = useRef(null);
+
+  const {uploadProduct} = useAdminContext()
 
   const handleChangeInput = (e) => {
     setListItem({ ...listItem, [e.target.name]: e.target.value });
@@ -25,7 +28,7 @@ export default function AddItemModalPage({ onSubmit, onSuccess }) {
       formData.append("price", listItem.price);
       formData.append("category", listItem.category);
       setLoading(true);
-      await onSubmit(formData);
+      await uploadProduct(formData);
       onSuccess();
     } catch (err) {
       console.log(err);

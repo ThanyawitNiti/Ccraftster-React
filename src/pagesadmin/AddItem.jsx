@@ -5,8 +5,11 @@ import AddItemButton from "./AddItemButton";
 import Modal from '../component/Modal'
 import AddItemModalPage from "./AddItemModalPage";
 
-export default function AddItem({uploadProduct}) {
+
+
+export default function AddItem() {
     const [isOpen,setIsOpen] = useState(false)
+    
    
   return (
     <>
@@ -21,7 +24,7 @@ export default function AddItem({uploadProduct}) {
     onClose={()=> setIsOpen(false)}
     maxWidth={44}>
         <AddItemModalPage onSuccess={()=> setIsOpen(false)}
-        onSubmit={uploadProduct}
+
         />
     </Modal>
     </>

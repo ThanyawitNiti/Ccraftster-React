@@ -1,6 +1,8 @@
 import React from "react";
+import { useAdminContext } from "../hooks/admin-context-hook";
 
-export default function DetailItem({ itemObj ,deleteProduct}) {
+export default function DetailItem({ itemObj }) {
+  const {deleteProduct} = useAdminContext()
   const handleClcikDelete = () =>{
     deleteProduct(itemObj.id)
   }

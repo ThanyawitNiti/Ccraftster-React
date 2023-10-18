@@ -8,10 +8,6 @@ export default function FormInsideModal({ onSuccess, itemObj }) {
     price: "",
     category: "",
   });
-  // console.log(newProductState)
-  // useParams
-
-  // const [file setFile] =useState(null)
 
   const handleChangeInput = (e) => {
     setNewProductState({ ...newProductState, [e.target.name]: e.target.value });

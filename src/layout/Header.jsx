@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import HeaderButton from "./HeaderButton";
 import { useAuth } from "../hooks/use-auth";
+import { useProductContext } from "../hooks/product-context-hook";
 
 export default function Header() {
   const { checkUser, logout } = useAuth();
+  const {showOrderItem} =useProductContext()
+  const handleCartClick = () =>{
+    // showOrderItem()
+    console.log('Test Click to call function showOrderItem to render Cart Page')
+  }
   return (
     <>
       <div>
@@ -69,7 +75,7 @@ export default function Header() {
                   </Link>
                 </li>
 
-                <li>
+                <li onClick={handleCartClick}>
                   <Link
                     to="/cartpage"
                     className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white focus:ring-1 focus:bg-yellow-100  hover:text-red-400"

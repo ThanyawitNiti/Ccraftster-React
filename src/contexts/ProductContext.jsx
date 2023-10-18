@@ -10,6 +10,11 @@ const [showProduct,setShowProduct] = useState([])
 const [showOrder,setShowOrder] =useState([])
 
 
+console.log(`####################1111111111${showOrder}`)
+
+
+
+
 
 useEffect(()=>{
     axios
@@ -29,6 +34,7 @@ useEffect(()=>{
     })
 },[])
 
+console.log(showOrder)
 
 const addProductToCart = async (productId) =>{
     try{
@@ -40,16 +46,17 @@ const addProductToCart = async (productId) =>{
     }
 }
 
-// const showOrderItem = async ()=>{
+// const showOrderItem = async (id)=>{
 //     try{
-//         // console.log(id)
-//        const res = await axios.get('/user/cartpage')
-
-//        setShowOrder(res.data.showOrder)
+//      const res = await axios.get('/user/cartpage',{userId:id})
+//       const showOrderFormBack = res.data.showItemToUser
+//       console.log(showOrderFormBack)
+//       setShowOrder
 //     } catch(err){
 //         console.log(err)
 //     }
 // }
+
 
 return (
     <>

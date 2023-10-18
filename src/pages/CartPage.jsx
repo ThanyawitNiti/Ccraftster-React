@@ -6,7 +6,7 @@ import { useProductContext } from "../hooks/product-context-hook";
 
 export default function CartPage() {
   const { checkUser } = useAuth();
-  const {showOrder} = useProductContext()
+  const {showOrder,showOrderItem} = useProductContext()
   if (!checkUser) {
     return <Navigate to="/login" />;
   }

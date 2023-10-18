@@ -1,17 +1,41 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "../hooks/use-auth";
+import HeaderCart from "./cart/HeaderCart";
+import DetailCart from "./cart/DetailCart";
+import { useProductContext } from "../hooks/product-context-hook";
 
 export default function CartPage() {
   const { checkUser } = useAuth();
+  const {showOrder} = useProductContext()
   if (!checkUser) {
     return <Navigate to="/login" />;
   }
+  // {showProduct.map((el) => (
+  //   <Card key={el.id} productObj={el} />
+  // ))}
+  // const separateShowOrder = showOder.map((el)=>{
+  //   el.product_id
+  // })
+  console.log(showOrder)
+  // console.log(showProduct)
+  
   return (
     <div className="broder border-2 border-red-400">
-      <div className="flex justify-between pb-2 pt-4 px-20">
-        <div>Photos</div>
-        <div>Name</div>
-        <div>Price</div>
+      <div className="overflow-x-auto flex justify-center ">
+        <table className="table broder border-2 border-red-400 w-4/5">
+          {/* head */}
+          <HeaderCart/>
+          {showOrder.map((el)=> 
+            <DetailCart key={el.id} 
+            amount={el.amount} 
+            name={el.product.product_name}
+            price={el.product.price}
+            photo={el.product.img_url}
+            />
+            
+            )
+          }
+        </table>
       </div>
     </div>
   );

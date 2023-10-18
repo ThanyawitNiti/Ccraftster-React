@@ -19,9 +19,19 @@ useEffect(()=>{
     })
 },[])
 
+const addProductToCart = async (productId) =>{
+    try{
+            const updateObj = {id : productId}
+         await axios.post('/user/cart',updateObj)
+        
+    }catch(err){
+        console.log(err)
+    }
+}
+
 return (
     <>
-    <ProductContext.Provider value={{showProduct}}>
+    <ProductContext.Provider value={{showProduct,addProductToCart}}>
         {children}
     </ProductContext.Provider>
     </>

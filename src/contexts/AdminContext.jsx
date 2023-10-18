@@ -27,9 +27,6 @@ export default function AdminContextProvider({children}) {
       console.log(err);
     }
   };
-console.log("first")
-
-console.log(allItem)
 
   const editProduct = async (productId,data) =>{
     try{
@@ -38,17 +35,13 @@ console.log(allItem)
 
       const indexEditProduct =allItem.findIndex((el)=>el.id == editProduct.id)
       allItem.splice(indexEditProduct,1,editProduct)
-      
-      // console.log(`###########${allItem}`)
       setAllItem([...allItem])
-      // setAllItem([...allItem,...editProduct])
 
     } catch(err){
       console.log(err)
     }
   }
 
-console.log(`###########${allItem}`)
   useEffect(() => {
     axios
       .get("/admin/item")

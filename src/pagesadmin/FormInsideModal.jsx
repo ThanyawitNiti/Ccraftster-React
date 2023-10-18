@@ -9,7 +9,6 @@ export default function FormInsideModal({ onSuccess, itemObj }) {
     category: "",
   });
   // console.log(newProductState)
-  const { allItem, setAllItem } = useAdminContext();
   // useParams
 
   // const [file setFile] =useState(null)
@@ -67,22 +66,10 @@ export default function FormInsideModal({ onSuccess, itemObj }) {
           className="border border-gray-500 rounded-sm"
         />
       </div>
-
-      {/* <div className="flex gap-3 flex-col">
-          <span> Product Image</span>
-          <input
-            type="file"
-            onChange={(e) => {
-              setFile(e.target.files[0]);
-            }}
-          />
-        </div> */}
-
       <button className=" border-2 border-green-200 w-20 bg-cGreen">
         {" "}
         Save{" "}
       </button>
     </form>
-    // </Modal>
   );
 }

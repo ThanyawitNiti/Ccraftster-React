@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function DetailItem({ itemObj }) {
   const { deleteProduct } = useAdminContext();
   const [isOpen, setIsOpen] = useState(false);
-  // const {setIsOpen,isOpen} =useAdminContext()
+
   const handleClcikDelete = () => {
     deleteProduct(itemObj.id);
   };
@@ -30,7 +30,7 @@ export default function DetailItem({ itemObj }) {
             className="border-2 border-gray-300 w-10 mx-3"
             onClick={() => setIsOpen(true)}
           >
-            Edit {itemObj.id}
+            Edit
             <Modal
               title="Edit Product"
               open={isOpen}

@@ -7,10 +7,6 @@ export const ProductContext = createContext()
 
 export default function ProductContextProvider({children}){
 const [showProduct,setShowProduct] = useState([])
-const [showOrder,setShowOrder] =useState([])
-
-
-console.log(`####################1111111111${showOrder}`)
 
 
 
@@ -25,16 +21,10 @@ useEffect(()=>{
     .catch((err)=>{
         console.log(err)
     })
-    axios
-    .get('/user/cartpage')
-    .then((res)=>{
-        setShowOrder(res.data.showItemToUser)
-    }).catch((err)=>{
-        console.log(err)
-    })
+   
 },[])
 
-console.log(showOrder)
+
 
 const addProductToCart = async (productId) =>{
     try{
@@ -46,21 +36,12 @@ const addProductToCart = async (productId) =>{
     }
 }
 
-// const showOrderItem = async (id)=>{
-//     try{
-//      const res = await axios.get('/user/cartpage',{userId:id})
-//       const showOrderFormBack = res.data.showItemToUser
-//       console.log(showOrderFormBack)
-//       setShowOrder
-//     } catch(err){
-//         console.log(err)
-//     }
-// }
+
 
 
 return (
     <>
-    <ProductContext.Provider value={{showProduct,addProductToCart,showOrder}}>
+    <ProductContext.Provider value={{showProduct,addProductToCart}}>
         {children}
     </ProductContext.Provider>
     </>

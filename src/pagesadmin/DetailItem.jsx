@@ -8,7 +8,10 @@ export default function DetailItem({ itemObj }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClcikDelete = () => {
+    console.log(itemObj.id)
     deleteProduct(itemObj.id);
+    console.log('xxxxxxxxxxxxxxxx')
+    
   };
 
   return (

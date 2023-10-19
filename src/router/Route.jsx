@@ -13,6 +13,7 @@ import LayoutAdmin from "../layout/LayoutAdmin.jsx";
 import UserOne from "../pageuser/UserOne.jsx";
 import UserAuthenticated from "../features/auth/UserAuthenticated.jsx";
 import InventoryAdmin from "../pagesadmin/InventoryAdmin.jsx";
+import UserProductPage from "../pageuser/UserProductPage.jsx";
 const router = createBrowserRouter([
   {
     path: "/admin",
@@ -42,8 +43,8 @@ const router = createBrowserRouter([
     ),
     children: [
       { path: "/", element: <HomePage /> },
-      { path: "/productpage", element: <ProductPage /> },
-      { path: "/profilepage", element: <ProfilePage /> },
+      { path: "/productpage", element: <UserProductPage/> },
+      { path: "/profilepage", element:<ProfilePage/> },
       { path: "/login", element: <LoginPage /> },
       { path: "/cartpage", element: <CartPage /> },
       // {path:"/register",element:<RegisterPage/>}

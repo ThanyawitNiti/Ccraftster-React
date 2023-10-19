@@ -1,10 +1,16 @@
+import { useState,useEffect } from "react";
 import { useProductContext } from "../../hooks/product-context-hook";
-;
+import axios from "../../config/axios";
 
 export default function Card({ productObj }) {
- console.log(productObj.id)
+//  console.log(productObj.id)
  const {addProductToCart} = useProductContext()
 
+//  console.log(productObj)
+//  const {afterAddProductObj,setAfterAddProductObj} = useState(productObj)
+
+
+// console.log(afterAddProductObj)
  const handleClickBuy = () =>{
     addProductToCart(productObj.id)
  }

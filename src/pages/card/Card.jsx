@@ -3,16 +3,11 @@ import { useProductContext } from "../../hooks/product-context-hook";
 import axios from "../../config/axios";
 
 export default function Card({ productObj }) {
-//  console.log(productObj.id)
  const {addProductToCart} = useProductContext()
 
-//  console.log(productObj)
-//  const {afterAddProductObj,setAfterAddProductObj} = useState(productObj)
-
-
-// console.log(afterAddProductObj)
- const handleClickBuy = () =>{
+ const handleClickBuy = async() =>{
     addProductToCart(productObj.id)
+  
  }
   return (
     <div className="card w-96 bg-base-100 shadow-xl">

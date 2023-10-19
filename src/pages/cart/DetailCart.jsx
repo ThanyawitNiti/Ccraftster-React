@@ -6,8 +6,7 @@ import ButtonDecreseAndIncrease from "./ButtonDecrese";
 import ButtonIncrease from "./ButtonIncrease";
 
 export default function DetailCart({ amount, name, price, photo,objIdInArray }) {
-
-  console.log(objIdInArray)
+  console.log(amount)
   const [productAmount ,setProductAmount] = useState(amount)
   return (
     <>
@@ -21,11 +20,11 @@ export default function DetailCart({ amount, name, price, photo,objIdInArray }) 
           <td className="text-center  border-2 border-cdGreen  ">
             <div className="flex justify-center gap-5">
             <div>
-              <ButtonDecrese objIdInArray={objIdInArray} setProductAmount={setProductAmount}/>
+              <ButtonDecrese objIdInArray={objIdInArray} setProductAmount={setProductAmount} productAmount={productAmount}/>
             </div>
             {productAmount}
             <div>
-              <ButtonIncrease objIdInArray={objIdInArray} setProductAmount={setProductAmount}/>
+              <ButtonIncrease objIdInArray={objIdInArray} setProductAmount={setProductAmount} productAmount={productAmount}/>
             </div>
             </div>
           </td>

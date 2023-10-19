@@ -46,9 +46,9 @@ export default function AdminContextProvider({children}) {
 
   useEffect(() => {
     axios
-      .get("/admin/item")
+      .get("/productpage")
       .then((res) => {
-        setAllItem(res.data.products);
+        setAllItem(res.data.showProductsFromSharingRoute);
       })
       .catch((err) => {
         console.log(err);

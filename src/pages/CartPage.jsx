@@ -4,7 +4,7 @@ import HeaderCart from "./cart/HeaderCart";
 import DetailCart from "./cart/DetailCart";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useProductContext } from "../hooks/product-context-hook";
+
 
 
 export default function CartPage() {
@@ -27,6 +27,7 @@ export default function CartPage() {
   }, []);
 
   console.log(showOrder);
+  console.log(showOrder.amount)
 
   return (
     <div className="broder border-2 border-red-400">

@@ -14,6 +14,7 @@ import UserOne from "../pageuser/UserOne.jsx";
 import UserAuthenticated from "../features/auth/UserAuthenticated.jsx";
 import InventoryAdmin from "../pagesadmin/InventoryAdmin.jsx";
 import UserProductPage from "../pageuser/UserProductPage.jsx";
+import AdminProductPage from "../pagesadmin/productpage/AdminProductPage.jsx";
 const router = createBrowserRouter([
   {
     path: "/admin",
@@ -23,14 +24,9 @@ const router = createBrowserRouter([
       </AdminAuthenticated>
     ),
     children: [
-      //   { path: "/admin", element: <HomePage /> },
-      //   { path: "/productpage", element: <ProductPage /> },
       { path: "/admin", element: <HomePage /> },
-      { path: "/admin/productpage", element: <ProductPage /> },
+      { path: "/admin/productpage", element: <ProductPage/> },
       { path: "/admin/inventory/", element: <InventoryAdmin /> },
-      // {path:"/admin/login",element:<LoginPage/>},
-      // {path:"/profilepage",element:<LoginPage/>},
-      // {path:"/cartpage",element:<CartPage/>},
     ],
   },
   {
@@ -43,29 +39,15 @@ const router = createBrowserRouter([
     ),
     children: [
       { path: "/", element: <HomePage /> },
-      { path: "/productpage", element: <UserProductPage/> },
+      // { path: "/productpage", element: <UserProductPage/> },
+      { path: "/productpage", element: <ProductPage/> },
       { path: "/profilepage", element:<ProfilePage/> },
       { path: "/login", element: <LoginPage /> },
       { path: "/cartpage", element: <CartPage /> },
-      // {path:"/register",element:<RegisterPage/>}
-      // {path:"/login",element:<LogoutPage/>},
+     
     ],
   },
-  // {
-  //   path: "/user",
-  //   element: (
-  //     <UserAuthenticated>
-  //       <Layout />
-  //     </UserAuthenticated>
-  //   ),
-  //   children: [
-  //     { path: "/user", element: <HomePage /> },
-  //     { path: "/user/productpage", element: <ProductPage /> },
-  //     { path: "/user/profilepage", element: <ProfilePage /> },
-  //     { path: "/user/login", element: <LoginPage /> },
-  //     { path: "/user/cartpage", element: <CartPage /> },
-  //   ],
-  // },
+ 
 ]);
 
 export default function Route() {

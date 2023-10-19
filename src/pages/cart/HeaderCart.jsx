@@ -2,7 +2,8 @@ import React from "react";
 
 export default function HeaderCart() {
   return (
-      <thead>
+    <>
+      <thead >
         <tr>
           <th>Photo</th>
           <th>Name</th>
@@ -10,6 +11,7 @@ export default function HeaderCart() {
           <th>Amount</th>
         </tr>
       </thead>
+    </>
     
   );
 }

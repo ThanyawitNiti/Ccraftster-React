@@ -8,10 +8,6 @@ export const ProductContext = createContext()
 export default function ProductContextProvider({children}){
 const [showProduct,setShowProduct] = useState([])
 
-
-
-
-
 useEffect(()=>{
     axios
     .get('/user/product')

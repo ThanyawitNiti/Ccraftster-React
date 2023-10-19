@@ -32,9 +32,11 @@ export default function AdminContextProvider({children}) {
     try{
       const res = await axios.patch(`/admin/${productId}`,data)
       const editProduct = res.data.doneEditProductByAdmin
+      console.log(res)
 
       const indexEditProduct =allItem.findIndex((el)=>el.id == editProduct.id)
       allItem.splice(indexEditProduct,1,editProduct)
+
       setAllItem([...allItem])
 
     } catch(err){

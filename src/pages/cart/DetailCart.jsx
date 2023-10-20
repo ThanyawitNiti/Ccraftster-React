@@ -10,10 +10,15 @@ export default function DetailCart({ amount, name, price, photo,objIdInArray }) 
   console.log(amount)
  
   const [productAmount ,setProductAmount] = useState(amount)
-  if(productAmount <0){
-    console.log('first')
-    setProductAmount(0)
-  }
+  // if(productAmount <0){
+  //   console.log('first')
+  //   setProductAmount(0)
+  //   if(productAmount == 0){
+  //     delete(row in cart table)
+  //   }
+
+  // }
+  console.log(amount)
   return (
     <>
       <tbody>

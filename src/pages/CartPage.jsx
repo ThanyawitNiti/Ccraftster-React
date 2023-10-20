@@ -25,8 +25,13 @@ export default function CartPage() {
         console.log(err);
       });
   }, [isRefresh]);
-
-
+const grandTotal = showOrder?.reduce((acc,item)=>{
+   let total = item.amount * item.product.price
+   acc+=total
+   return acc
+},0)
+console.log(grandTotal)
+console.log(showOrder)
   return (
     <div className="broder border-2 border-red-400">
       <div className="overflow-x-auto flex justify-center ">

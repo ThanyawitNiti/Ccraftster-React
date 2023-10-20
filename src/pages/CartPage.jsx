@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 
-
 export default function CartPage() {
   const { checkUser } = useAuth();
   const [showOrder, setShowOrder] = useState([]);
@@ -14,7 +13,6 @@ export default function CartPage() {
     return <Navigate to="/login" />;
   }
   
-
   useEffect(() => {
     axios
       .get("/user/cartpage")
@@ -26,8 +24,6 @@ export default function CartPage() {
       });
   }, []);
 
-  console.log(showOrder);
-  console.log(showOrder.amount)
 
   return (
     <div className="broder border-2 border-red-400">

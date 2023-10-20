@@ -6,6 +6,8 @@ import ButtonDecreseAndIncrease from "./ButtonDecrese";
 import ButtonIncrease from "./ButtonIncrease";
 
 export default function DetailCart({ amount, name, price, photo,objIdInArray }) {
+
+  
   console.log(amount)
   const [productAmount ,setProductAmount] = useState(amount)
   return (

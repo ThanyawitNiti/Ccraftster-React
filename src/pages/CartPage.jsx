@@ -4,6 +4,7 @@ import HeaderCart from "./cart/HeaderCart";
 import DetailCart from "./cart/DetailCart";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useProductContext } from "../hooks/product-context-hook";
 
 
 export default function CartPage() {
@@ -12,7 +13,8 @@ export default function CartPage() {
   if (!checkUser) {
     return <Navigate to="/login" />;
   }
-  
+
+  const {isRefresh} = useProductContext()
   useEffect(() => {
     axios
       .get("/user/cartpage")
@@ -22,7 +24,7 @@ export default function CartPage() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [isRefresh]);
 
 
   return (

@@ -2,14 +2,18 @@
 import { useState } from "react";
 import { useProductContext } from "../../hooks/product-context-hook";
 import ButtonDecrese from "./ButtonDecrese";
-import ButtonDecreseAndIncrease from "./ButtonDecrese";
 import ButtonIncrease from "./ButtonIncrease";
 
 export default function DetailCart({ amount, name, price, photo,objIdInArray }) {
 
   
   console.log(amount)
+ 
   const [productAmount ,setProductAmount] = useState(amount)
+  if(productAmount <0){
+    console.log('first')
+    setProductAmount(0)
+  }
   return (
     <>
       <tbody>

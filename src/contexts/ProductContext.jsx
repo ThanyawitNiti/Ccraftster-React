@@ -6,22 +6,13 @@ import { useState } from "react";
 export const ProductContext = createContext()
 
 export default function ProductContextProvider({children}){
-// const [showProduct,setShowProduct] = useState([])
-
-// useEffect(()=>{
-//     axios
-//     .get('/productpage')
-//     .then((res)=>{
-//         setShowProduct(res.data.showProductsFromSharingRoute)
-//     })
-//     .catch((err)=>{
-//         console.log(err)
-//     })
-   
-// },[])
-
+const [noti,setNoti] = useState('')
 const [isRefresh,setIsRefresh] = useState(false)
 
+const handleClickNoti = ()=>{
+    setNoti('text-lg')
+    setNoti('')
+}
 
 const addProductToCart = async (productId) =>{
     try{
@@ -33,7 +24,7 @@ const addProductToCart = async (productId) =>{
     }
 }
 
-const deleteProductInCart = async (productId) =>{
+const decreaseProductInCart = async (productId) =>{
     try{
         await axios.delete(`/user/cart/${productId}`)
         setIsRefresh(!isRefresh)
@@ -44,9 +35,10 @@ const deleteProductInCart = async (productId) =>{
 }
 
 
+
 return (
     <>
-    <ProductContext.Provider value={{deleteProductInCart,addProductToCart,isRefresh
+    <ProductContext.Provider value={{decreaseProductInCart,addProductToCart,isRefresh,noti,setNoti,handleClickNoti
 }}>
         {children}
     </ProductContext.Provider>

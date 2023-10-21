@@ -3,13 +3,21 @@ import { useState } from "react";
 import { useProductContext } from "../../hooks/product-context-hook";
 import ButtonDecrese from "./ButtonDecrese";
 import ButtonIncrease from "./ButtonIncrease";
+import axios from "../../config/axios";
 
-export default function DetailCart({ amount, name, price, photo,objIdInArray }) {
+export default function DetailCart({ amount, name, price, photo,objIdInArray,deleteProductInCart,showOrder }) {
 
-  
-  console.log(amount)
- 
   const [productAmount ,setProductAmount] = useState(amount)
+ 
+
+console.log(objIdInArray)
+console.log(showOrder)
+ 
+
+const handleDeleteClick = async ()=>{
+  deleteProductInCart(objIdInArray)
+} 
+
   // if(productAmount <0){
   //   console.log('first')
   //   setProductAmount(0)
@@ -18,7 +26,7 @@ export default function DetailCart({ amount, name, price, photo,objIdInArray }) 
   //   }
 
   // }
-  console.log(amount)
+
   return (
     <>
       <tbody>
@@ -43,7 +51,7 @@ export default function DetailCart({ amount, name, price, photo,objIdInArray }) 
         <div className="w-40"></div>
         <div className="flex gap-4">
           <div className="flex flex-col border-2 border-cGreen w-20 h-10 justify-center">
-            <button>Delete</button>
+            <button onClick={handleDeleteClick}>Delete</button>
           </div>
         </div>
       </tbody>

@@ -10,7 +10,6 @@ export default function DetailItem({ itemObj }) {
   const handleClcikDelete = () => {
     console.log(itemObj.id)
     deleteProduct(itemObj.id);
-    console.log('xxxxxxxxxxxxxxxx')
     
   };
 

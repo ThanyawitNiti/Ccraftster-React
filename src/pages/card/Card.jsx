@@ -3,10 +3,12 @@ import { useProductContext } from "../../hooks/product-context-hook";
 import axios from "../../config/axios";
 
 export default function Card({ productObj }) {
- const {addProductToCart} = useProductContext()
+  
+ const {addProductToCart,handleClickNoti} = useProductContext()
 
  const handleClickBuy = async() =>{
     addProductToCart(productObj.id)
+    handleClickNoti()
   
  }
   return (
@@ -17,7 +19,7 @@ export default function Card({ productObj }) {
       <div className="card-body flex gap-6 justify-center">
         <h2 className="card-title">{productObj.product_name}</h2>
         <div>
-          <span>{productObj.price}</span>
+          <span>{productObj.price} Baht</span>
         </div>
         <div>
           <span>{productObj.category}</span>

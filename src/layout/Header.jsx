@@ -1,11 +1,10 @@
 import { Link } from "react-router-dom";
 import HeaderButton from "./HeaderButton";
 import { useAuth } from "../hooks/use-auth";
-import { useProductContext } from "../hooks/product-context-hook";
+
 
 export default function Header() {
   const { checkUser, logout } = useAuth();
-  const {showOrderItem,noti,setNoti} =useProductContext()
   
   return (
     <>

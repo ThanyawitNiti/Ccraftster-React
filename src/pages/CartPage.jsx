@@ -5,6 +5,7 @@ import DetailCart from "./cart/DetailCart";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useProductContext } from "../hooks/product-context-hook";
+import { Link } from "react-router-dom";
 
 export default function CartPage() {
   const { checkUser } = useAuth();
@@ -13,8 +14,8 @@ export default function CartPage() {
     return <Navigate to="/login" />;
   }
 
-  const { isRefresh} = useProductContext();
-  
+  const { isRefresh } = useProductContext();
+
   useEffect(() => {
     axios
       .get("/user/cartpage")
@@ -31,7 +32,6 @@ export default function CartPage() {
     acc += total;
     return acc;
   }, 0);
-
 
   return (
     <div className="broder border-2 border-red-400">
@@ -61,9 +61,13 @@ export default function CartPage() {
         <div></div>
       </div>
       <div className="flex mt-3 justify-center">
-        <button className="text-center w-20 border-2 border-red-200 rounded-md">
-          PAY
-        </button>
+        <Link to="/profilepage">
+          <button
+            className="text-center w-20 border-2 border-red-200 rounded-md"
+          >
+            PAY
+          </button>
+        </Link>
       </div>
     </div>
   );

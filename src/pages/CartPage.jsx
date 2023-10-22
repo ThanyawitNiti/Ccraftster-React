@@ -14,6 +14,7 @@ export default function CartPage() {
   }
 
   const { isRefresh} = useProductContext();
+  
   useEffect(() => {
     axios
       .get("/user/cartpage")
@@ -32,20 +33,6 @@ export default function CartPage() {
   }, 0);
 
 
-  // const deleteProductInCart = async (productId)=>{
-  //   try{
-  //     await axios.delete(`/user/itemincartpage/${productId}`)
-  //     // setShowOrder(showOrder.filter((el)=>el.id!==productId))
-  //     await axios.get('/user/cartpage').then((res)=> {
-  //       setShowOrder(res.data.showItemToUser)
-  //     })
-    
-  //   }catch(err){
-  //     console.log(err)
-  //   }
-  // }
-
-
   return (
     <div className="broder border-2 border-red-400">
       <div className="overflow-x-auto flex justify-center ">
@@ -62,7 +49,6 @@ export default function CartPage() {
               objIdInArray={el.product_id}
               showOrder={showOrder}
               setShowOrder={setShowOrder}
-              // deleteProductInCart={deleteProductInCart}
             />
           ))}
         </table>

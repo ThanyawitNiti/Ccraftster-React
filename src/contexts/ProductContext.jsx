@@ -30,11 +30,19 @@ const decreaseProductInCart = async (productId) =>{
     }
 }
 
+const deleteProductInCart = async (productId) => {
+    try{
+        await axios.delete(`user/itemincartpage/${productId}`)
+        setIsRefresh(!isRefresh)
+    }catch(err){
+        console.log(err)
+    }
+}
 
 
 return (
     <>
-    <ProductContext.Provider value={{decreaseProductInCart,addProductToCart,isRefresh
+    <ProductContext.Provider value={{decreaseProductInCart,addProductToCart,isRefresh,deleteProductInCart
 }}>
         {children}
     </ProductContext.Provider>

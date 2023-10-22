@@ -6,13 +6,9 @@ import { useState } from "react";
 export const ProductContext = createContext()
 
 export default function ProductContextProvider({children}){
-const [noti,setNoti] = useState('')
+
 const [isRefresh,setIsRefresh] = useState(false)
 
-const handleClickNoti = ()=>{
-    setNoti('text-lg')
-    setNoti('')
-}
 
 const addProductToCart = async (productId) =>{
     try{
@@ -38,7 +34,7 @@ const decreaseProductInCart = async (productId) =>{
 
 return (
     <>
-    <ProductContext.Provider value={{decreaseProductInCart,addProductToCart,isRefresh,noti,setNoti,handleClickNoti
+    <ProductContext.Provider value={{decreaseProductInCart,addProductToCart,isRefresh
 }}>
         {children}
     </ProductContext.Provider>

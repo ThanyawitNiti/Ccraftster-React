@@ -1,22 +1,37 @@
-
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useProductContext } from "../../hooks/product-context-hook";
 import ButtonDecrese from "./ButtonDecrese";
 import ButtonIncrease from "./ButtonIncrease";
 import axios from "../../config/axios";
 
-export default function DetailCart({ amount, name, price, photo,objIdInArray,deleteProductInCart,showOrder }) {
+export default function DetailCart({
+  amount,
+  name,
+  price,
+  photo,
+  objIdInArray,
+  showOrder,
+  setShowOrder,
+}) {
+  const [productAmount, setProductAmount] = useState(amount);
 
-  const [productAmount ,setProductAmount] = useState(amount)
+  useEffect(() => {
+    axios
+      .get("/user/cartpage")
+      .then((res) => {
+        setShowOrder(res.data.showItemToUser); 
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  },[] );
+
  
-
-console.log(objIdInArray)
-console.log(showOrder)
- 
-
-const handleDeleteClick = async ()=>{
-  deleteProductInCart(objIdInArray)
-} 
+  console.log(showOrder);
+const {deleteProductInCart} =useProductContext()
+  const handleDeleteClick = async () => {
+    deleteProductInCart(objIdInArray);
+  };
 
   // if(productAmount <0){
   //   console.log('first')
@@ -38,13 +53,21 @@ const handleDeleteClick = async ()=>{
           <td className="text-center">{price}</td>
           <td className="text-center  border-2 border-cdGreen  ">
             <div className="flex justify-center gap-5">
-            <div>
-              <ButtonDecrese objIdInArray={objIdInArray} setProductAmount={setProductAmount} productAmount={productAmount}/>
-            </div>
-            {productAmount}
-            <div>
-              <ButtonIncrease objIdInArray={objIdInArray} setProductAmount={setProductAmount} productAmount={productAmount}/>
-            </div>
+              <div>
+                <ButtonDecrese
+                  objIdInArray={objIdInArray}
+                  setProductAmount={setProductAmount}
+                  productAmount={productAmount}
+                />
+              </div>
+              {productAmount}
+              <div>
+                <ButtonIncrease
+                  objIdInArray={objIdInArray}
+                  setProductAmount={setProductAmount}
+                  productAmount={productAmount}
+                />
+              </div>
             </div>
           </td>
         </tr>

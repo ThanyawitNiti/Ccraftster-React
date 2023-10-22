@@ -32,18 +32,18 @@ export default function CartPage() {
   }, 0);
 
 
-  const deleteProductInCart = async (productId)=>{
-    try{
-      await axios.delete(`/user/itemincartpage/${productId}`)
-      // setShowOrder(showOrder.filter((el)=>el.id!==productId))
-      await axios.get('/user/cartpage').then((res)=> {
-        setShowOrder(res.data.showItemToUser)
-      })
+  // const deleteProductInCart = async (productId)=>{
+  //   try{
+  //     await axios.delete(`/user/itemincartpage/${productId}`)
+  //     // setShowOrder(showOrder.filter((el)=>el.id!==productId))
+  //     await axios.get('/user/cartpage').then((res)=> {
+  //       setShowOrder(res.data.showItemToUser)
+  //     })
     
-    }catch(err){
-      console.log(err)
-    }
-  }
+  //   }catch(err){
+  //     console.log(err)
+  //   }
+  // }
 
 
   return (
@@ -62,7 +62,7 @@ export default function CartPage() {
               objIdInArray={el.product_id}
               showOrder={showOrder}
               setShowOrder={setShowOrder}
-              deleteProductInCart={deleteProductInCart}
+              // deleteProductInCart={deleteProductInCart}
             />
           ))}
         </table>

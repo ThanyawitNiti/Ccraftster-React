@@ -44,7 +44,8 @@ const uploadSlip = async (data) => {
   }
   
 };
-
+// 1st way logic in backend after findmany statusPayment
+// 2nd way create fn that fetch 
 
   return (
     <>

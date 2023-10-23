@@ -13,7 +13,7 @@ import AdminOne from "../pagesadmin/AdminOne.jsx";
 
 import AdminAuthenticated from "../features/auth/AdminAuthenticated.jsx";
 import LayoutAdmin from "../layout/LayoutAdmin.jsx";
-import UserOne from "../pageuser/UserOne.jsx";
+
 
 import InventoryAdmin from "../pagesadmin/InventoryAdmin.jsx";
 import UserProductPage from "../pageuser/UserProductPage.jsx";

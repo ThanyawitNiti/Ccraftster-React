@@ -19,10 +19,17 @@ useEffect(() => {
     });
 }, []);
 
+const sendCartToOrder = async (data) =>{
+   try{
+    await axios.post('/order',data)
+  }catch(err){
+    console.log(err)
+  }
+}
 
   return (
     <>
-      <OrderContext.Provider value={{order}}>
+      <OrderContext.Provider value={{order,sendCartToOrder}}>
         {children}
       </OrderContext.Provider>
     </>

@@ -5,6 +5,7 @@ import DetailCart from "./cart/DetailCart";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useProductContext } from "../hooks/product-context-hook";
+import { useOrderContext } from "../hooks/order-context-hook";
 import { Link } from "react-router-dom";
 
 export default function CartPage() {
@@ -15,6 +16,7 @@ export default function CartPage() {
   }
 
   const { isRefresh } = useProductContext();
+  const { sendCartToOrder } = useOrderContext();
 
   useEffect(() => {
     axios
@@ -32,6 +34,10 @@ export default function CartPage() {
     acc += total;
     return acc;
   }, 0);
+
+  const handleClickPay = () => {
+    sendCartToOrder(showOrder);
+  };
 
   return (
     <div className="broder border-2 border-red-400">
@@ -62,9 +68,9 @@ export default function CartPage() {
       </div>
       <div className="flex mt-3 justify-center">
         <Link to="/profilepage">
-          <button
-            className="text-center w-20 border-2 border-red-200 rounded-md"
-          >
+          <button 
+          className="text-center w-20 border-2 border-red-200 rounded-md"
+          onClick={handleClickPay}>
             PAY
           </button>
         </Link>

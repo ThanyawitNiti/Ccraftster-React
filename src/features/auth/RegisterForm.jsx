@@ -54,7 +54,7 @@ export default function RegisterForm() {
   const handleSubmitForm = (e) => {
     e.preventDefault();
     const validationErrorObj = validateRegister(input, {
-      abortEarly: false,
+      abortEarly: true,
     });
     if (validationErrorObj) {
       validationErrorObj.email = "Email should contain @example.com"

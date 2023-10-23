@@ -22,12 +22,16 @@ useEffect(() => {
     });
 }, [isRefresh]);
 
+
 const sendCartToOrder = async (data) =>{
    try{
-    await axios.post('/order',data)
+    console.log(data)
+    const req = await axios.post('/order',data)
+    console.log(req)
+    
     setIsRefresh(!isRefresh)
   }catch(err){
-    console.log(err)
+    console.log(err.response.data)
   }
 }
 
@@ -44,7 +48,7 @@ const uploadSlip = async (data) => {
 
   return (
     <>
-      <OrderContext.Provider value={{order,sendCartToOrder}}>
+      <OrderContext.Provider value={{order,sendCartToOrder,uploadSlip}}>
         {children}
       </OrderContext.Provider>
     </>

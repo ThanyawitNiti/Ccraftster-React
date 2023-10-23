@@ -6,6 +6,7 @@ import OrderList from "../pageuser/OrderList";
 
 export default function ProfilePage() {
   const [statusPayment, setStatusPayment] = useState([]);
+  const [checkingPayment,setCheckingPayment] = useState([])
   const { order } = useOrderContext();
 
   const totaFormOrder = order.reduce((acc, item) => {
@@ -14,20 +15,20 @@ export default function ProfilePage() {
     return acc;
   }, 0);
 
-  
-
   useEffect(() => {
     axios
       .get("/order/status")
       .then((res) => {
         setStatusPayment(res.data.statusPayment);
+        setCheckingPayment(res.data.statusPaymentTrue)
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
-
+console.log(checkingPayment)
   console.log(statusPayment);
+  
   return (
     <>
       <div className="flex justify-center flex-col items-center  border-2 border-blue-200">
@@ -45,10 +46,15 @@ export default function ProfilePage() {
           {statusPayment.map((el) =>(
             <OrderList 
             key={el.id}
+            id={el.id}
             total_price={el.total_price}
             payment_status={el.payment_status} />
             ))}
           
+        </div>
+
+        <div className="border-2 border-red-200 flex flex-col justify-evenly items-center gap-3 w-3/4">
+
         </div>
       </div>
     </>

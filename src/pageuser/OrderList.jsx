@@ -3,7 +3,8 @@ import { useOrderContext } from "../hooks/order-context-hook";
 import Loading from "../component/Loading";
 
 
-export default function OrderList({ total_price, payment_status }) {
+export default function OrderList({ id,total_price, payment_status }) {
+
 
 const [file,setFile] =useState(null)
 const [loading, setLoading] = useState(false)
@@ -14,7 +15,9 @@ const handdlesubmitForm = async (e)=>{
     try{
         e.preventDefault()
         const formData = new FormData()
+        formData.append('id',id)
         formData.append('slipImg',file)
+        console.log(formData.id)
         setLoading(true)
         await uploadSlip(formData)
 
@@ -34,8 +37,10 @@ const handdlesubmitForm = async (e)=>{
       </div>
       </div>
       {loading && <Loading/>}
-      <form className="w-10"
-      onSubmit={handdlesubmitForm}>
+      <form 
+      className="w-10"
+      onSubmit={handdlesubmitForm}
+      >
         <button className=" border-2 border-green-200 w-60 bg-cGreen">Upload Slip</button>
         <input
             type="file"

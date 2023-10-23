@@ -9,11 +9,11 @@ export default function Layout() {
   return (
     <>
       <ProductContextProvider>
-        <OrderContextProvider>
+        
           <Header />
           <Outlet />
           <Footer />
-        </OrderContextProvider>
+        
       </ProductContextProvider>
     </>
   );

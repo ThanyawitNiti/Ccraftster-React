@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useOrderContext } from "../hooks/order-context-hook";
 import axios from "axios";
 import { useState } from "react";
+import OrderList from "../pageuser/OrderList";
 
 export default function ProfilePage() {
   const [statusPayment, setStatusPayment] = useState([]);
@@ -12,6 +13,8 @@ export default function ProfilePage() {
     acc += total;
     return acc;
   }, 0);
+
+  
 
   useEffect(() => {
     axios
@@ -35,10 +38,17 @@ export default function ProfilePage() {
           <div>นายสันดอน นอนดึก</div>
         </div>
 
-        <div className="border-2 border-red-200 flex flex-col justify-evenly items-center gap-3">
-          <div>total : {totaFormOrder}</div>
-          <div>total : {`${statusPayment.total_price}`}</div>
-          <div>StatusPayment :{`${statusPayment.payment_status}`} </div>
+        <div className="border-2 border-red-200 flex flex-col justify-evenly items-center gap-3 w-3/4">
+          {/* <div>total : {totaFormOrder}</div> */}
+          {/* <div>total : {`${statusPayment.total_price}`}</div>
+          <div>StatusPayment :{`${statusPayment.payment_status}`} </div> */}
+          {statusPayment.map((el) =>(
+            <OrderList 
+            key={el.id}
+            total_price={el.total_price}
+            payment_status={el.payment_status} />
+            ))}
+          
         </div>
       </div>
     </>

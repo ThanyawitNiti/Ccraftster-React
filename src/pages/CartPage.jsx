@@ -11,11 +11,12 @@ import { Link } from "react-router-dom";
 export default function CartPage() {
   const { checkUser } = useAuth();
   const [showOrder, setShowOrder] = useState([]);
+  console.log('Cartpageeeeeeeeeeeeeeeeeeeeeeeeeeeeee')
   if (!checkUser) {
     return <Navigate to="/login" />;
   }
 
-  const { isRefresh } = useProductContext();
+  const { isRefresh,deleteProductInCart } = useProductContext();
   const { sendCartToOrder } = useOrderContext();
 
   useEffect(() => {
@@ -35,8 +36,16 @@ export default function CartPage() {
     return acc;
   }, 0);
 
+  const productIdInCart = showOrder.map((el)=>el.product_id)
+  console.log(productIdInCart)
+
+console.log(showOrder.product_id)
+
   const handleClickPay = () => {
     sendCartToOrder(showOrder);
+    for (const elId of productIdInCart){
+      deleteProductInCart(elId)
+    }
     
   };
 

@@ -8,7 +8,9 @@ export const OrderContext = createContext();
 
 export default function OrderContextProvider({ children }) {
 const [order,setOrder] = useState([])
+
 const {isRefresh,setIsRefresh} = useProductContext()
+
 useEffect(() => {
   axios
     .get("/user/cartpage")
@@ -28,6 +30,16 @@ const sendCartToOrder = async (data) =>{
     console.log(err)
   }
 }
+
+const uploadSlip = async (data) => {
+  try{
+    await axios.post("/order/slip", data);
+
+  }catch(err){
+    console.log(err)
+  }
+  
+};
 
 
   return (

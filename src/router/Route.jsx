@@ -5,23 +5,28 @@ import ProductPage from "../pages/ProductPage.jsx";
 import Layout from "../layout/Layout.jsx";
 import ProfilePage from "../pages/ProfilePage.jsx";
 import CartPage from "../pages/CartPage.jsx";
+
 import Authenticated from "../features/auth/Authenticated.jsx";
+
 import RegisterPage from "../pages/RegisterPage.jsx";
 import AdminOne from "../pagesadmin/AdminOne.jsx";
+
 import AdminAuthenticated from "../features/auth/AdminAuthenticated.jsx";
 import LayoutAdmin from "../layout/LayoutAdmin.jsx";
 import UserOne from "../pageuser/UserOne.jsx";
-import UserAuthenticated from "../features/auth/UserAuthenticated.jsx";
+
 import InventoryAdmin from "../pagesadmin/InventoryAdmin.jsx";
 import UserProductPage from "../pageuser/UserProductPage.jsx";
 import AdminProductPage from "../pagesadmin/productpage/AdminProductPage.jsx";
+import OrderContextProvider, { OrderContext } from "../contexts/OrderContext.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/admin",
     element: (
       <AdminAuthenticated>
         <LayoutAdmin />
-      </AdminAuthenticated>
+       </AdminAuthenticated>
     ),
     children: [
       { path: "/admin", element: <HomePage /> },
@@ -39,11 +44,20 @@ const router = createBrowserRouter([
     ),
     children: [
       { path: "/", element: <HomePage /> },
-      // { path: "/productpage", element: <UserProductPage/> },
       { path: "/productpage", element: <ProductPage/> },
-      { path: "/profilepage", element:<ProfilePage/> },
+      { path: "/profilepage", element:
+      <OrderContextProvider>
+        <ProfilePage/>
+      </OrderContextProvider>
+
+     },
       { path: "/login", element: <LoginPage /> },
-      { path: "/cartpage", element: <CartPage /> },
+
+      { path: "/cartpage", element: 
+      <OrderContextProvider>
+        <CartPage />
+      </OrderContextProvider>
+     },
      
     ],
   },

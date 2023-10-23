@@ -3,7 +3,7 @@ import RegisterInput from "./RegisterInput";
 import { useState } from "react";
 import { useAuth } from "../../hooks/use-auth";
 import InputErrorMessage from "./InputErrorMessage";
-import { Children } from "react";
+
 
 const registerSchema = Joi.object({
   first_name: Joi.string().trim().required().label("First Name"),
@@ -22,7 +22,7 @@ const registerSchema = Joi.object({
 
 const validateRegister = (input) => {
   const { error } = registerSchema.validate(input, {
-    abortEarly: false,
+    abortEarly: true,
   });
 
   if (error) {

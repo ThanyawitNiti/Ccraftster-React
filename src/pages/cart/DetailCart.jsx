@@ -33,12 +33,12 @@ const {deleteProductInCart} =useProductContext()
     deleteProductInCart(objIdInArray);
   };
 
-  // if(productAmount <0){
+  // if(productAmount <1){
   //   console.log('first')
-  //   setProductAmount(0)
-  //   if(productAmount == 0){
-  //     delete(row in cart table)
-  //   }
+  //   // setProductAmount(0)
+  //   // if(productAmount == 0){
+      
+  //   // }
 
   // }
 

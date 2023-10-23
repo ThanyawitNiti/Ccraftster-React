@@ -37,6 +37,7 @@ export default function CartPage() {
 
   const handleClickPay = () => {
     sendCartToOrder(showOrder);
+    
   };
 
   return (

@@ -43,6 +43,7 @@ export default function ProductContextProvider({ children }) {
           addProductToCart,
           isRefresh,
           deleteProductInCart,
+          setIsRefresh
         }}
       >
         {children}

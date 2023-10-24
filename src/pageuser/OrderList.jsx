@@ -3,7 +3,7 @@ import { useOrderContext } from "../hooks/order-context-hook";
 import Loading from "../component/Loading";
 
 
-export default function OrderList({ id,total_price, payment_status }) {
+export default function OrderList({ id,total_price, payment_status,history }) {
 
 
 const [file,setFile] =useState(null)
@@ -19,13 +19,16 @@ const handdlesubmitForm = async (e)=>{
         formData.append('slipImg',file)
         setLoading(true)
         await uploadSlip(formData)
-
+      console.log(formData)
     }catch(err){
         console.log(err)
     }finally {
         setLoading(false);
+        history()
       }
 }
+
+console.log(file)
   return (
     <div className="flex gap-20">
       <div>Total Price : {total_price}</div>

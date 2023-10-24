@@ -25,7 +25,7 @@ useEffect(() => {
 
 const sendCartToOrder = async (data) =>{
    try{
-    console.log(data)
+    console.log('nmhjhjkhjhj')
     const req = await axios.post('/order',data)
     console.log(req)
     
@@ -38,7 +38,7 @@ const sendCartToOrder = async (data) =>{
 const uploadSlip = async (data) => {
   try{
     await axios.post("/order/slip", data);
-
+    
   }catch(err){
     console.log(err)
   }

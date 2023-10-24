@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 export default function CartPage() {
   const { checkUser } = useAuth();
   const [showOrder, setShowOrder] = useState([]);
+  
   if (!checkUser) {
     return <Navigate to="/login" />;
   }

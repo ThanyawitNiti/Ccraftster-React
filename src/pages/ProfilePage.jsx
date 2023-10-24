@@ -16,16 +16,21 @@ export default function ProfilePage() {
     return acc;
   }, 0);
 
-  useEffect(() => {
-    axios
+const history = () =>{
+  axios
       .get("/order/status")
       .then((res) => {
+        console.log(res)
         setStatusPayment(res.data.statusPayment);
         setCheckingPayment(res.data.statusPaymentTrue);
       })
       .catch((err) => {
         console.log(err);
       });
+}
+
+  useEffect(() => {
+    history()
   }, []);
   console.log(checkingPayment);
   console.log(statusPayment);
@@ -47,17 +52,20 @@ export default function ProfilePage() {
               id={el.id}
               total_price={el.total_price}
               payment_status={el.payment_status}
+              history={history}
             />
           ))}
         </div>
   
         <div className="border-2 border-red-200 flex flex-col justify-evenly items-center gap-3 w-3/4">
+          <div className="font-semibold pt-2">Payment History</div>
           {checkingPayment.map((el) => (
             <HistoryOrder
               key={el.id}
               id={el.id}
               total_price={el.total_price}
               payment_status={el.payment_status}
+              
             />
           ))}
         </div>

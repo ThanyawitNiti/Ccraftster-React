@@ -17,7 +17,6 @@ const handdlesubmitForm = async (e)=>{
         const formData = new FormData()
         formData.append('id',id)
         formData.append('slipImg',file)
-        console.log(formData.id)
         setLoading(true)
         await uploadSlip(formData)
 
@@ -33,7 +32,7 @@ const handdlesubmitForm = async (e)=>{
       <div className="flex ">
       <div>StatusPayment :</div>
       <div className= {`${payment_status ?"text-green-500" : "text-red-500"}`} >
-        {payment_status ? "Completed" : "Processing Payment"}
+        {payment_status ? "รอแอดมินตรวจสอบสลิปก่อนนะ" : "สั่งเพลิน อย่าลืมโอน"}
       </div>
       </div>
       {loading && <Loading/>}

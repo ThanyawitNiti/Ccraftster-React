@@ -4,11 +4,10 @@ import axios from "../../config/axios";
 
 export default function Card({ productObj }) {
   
- const {addProductToCart,handleClickNoti} = useProductContext()
+ const {addProductToCart} = useProductContext()
 
  const handleClickBuy = async() =>{
     addProductToCart(productObj.id)
-    handleClickNoti()
   
  }
   return (

@@ -10,7 +10,7 @@ export default function HistoryOrder({total_price,payment_status}) {
       <div className="flex">
       <div className="font-semibold">StatusPayment :</div>
       <div className= {`${payment_status ?"text-green-600" : "text-red-500"}`} >
-        {payment_status ? "Completed" : "Processing Payment"} 
+        {payment_status ? "รอแอดมินตรวจสอบสลิปก่อนนะ" : "สั่งเพลิน อย่าลืมโอน"} 
       </div>
       </div>
     </div>

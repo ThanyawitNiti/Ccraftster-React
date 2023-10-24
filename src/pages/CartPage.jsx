@@ -38,7 +38,7 @@ export default function CartPage() {
   const productIdInCart = showOrder.map((el)=>el.product_id)
 
 
-console.log(showOrder.product_id)
+console.log(showOrder)
 
   const handleClickPay = () => {
     sendCartToOrder(showOrder);

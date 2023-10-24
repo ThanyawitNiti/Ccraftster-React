@@ -35,10 +35,10 @@ const {deleteProductInCart} =useProductContext()
 
   // if(productAmount <1){
   //   console.log('first')
-  //   // setProductAmount(0)
+  //   setProductAmount(0)
   //   // if(productAmount == 0){
       
-  //   // }
+    
 
   // }
 

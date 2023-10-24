@@ -8,6 +8,7 @@ export default function Card({ productObj }) {
 
  const handleClickBuy = async() =>{
     addProductToCart(productObj.id)
+    alert('Added')
   
  }
   return (

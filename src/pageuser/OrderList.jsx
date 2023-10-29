@@ -3,7 +3,7 @@ import { useOrderContext } from "../hooks/order-context-hook";
 import Loading from "../component/Loading";
 
 
-export default function OrderList({ id,total_price, payment_status,history }) {
+export default function OrderList({ id,total_price, payment_status,history,slipImg }) {
 
 
 const [file,setFile] =useState(null)
@@ -34,8 +34,8 @@ console.log(file)
       <div>Total Price : {total_price}</div>
       <div className="flex ">
       <div>StatusPayment :</div>
-      <div className= {`${payment_status ?"text-green-500" : "text-red-500"}`} >
-        {payment_status ? "รอแอดมินตรวจสอบสลิปก่อนนะ" : "สั่งเพลิน อย่าลืมโอน"}
+      <div className= {`${slipImg ?"text-green-500" : "text-red-500"}`} >
+        {slipImg ? "รอแอดมินตรวจสอบสลิปก่อนนะ" : "สั่งเพลิน อย่าลืมโอน"}
       </div>
       </div>
       {loading && <Loading/>}

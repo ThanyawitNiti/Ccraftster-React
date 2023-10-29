@@ -16,7 +16,6 @@ export default function ProfilePage() {
     return acc;
   }, 0);
 
-  console.log('aaaa',totaFormOrder)
 
 const history = () =>{
   axios
@@ -35,6 +34,7 @@ const history = () =>{
     history()
   }, []);
   console.log('statusPayment',statusPayment);
+  // console.log('statusPayment',statusPayment[0].slipImg);
   
   console.log('checkingPayment',checkingPayment);
   return (
@@ -54,6 +54,7 @@ const history = () =>{
               id={el.id}
               total_price={el.total_price}
               payment_status={el.payment_status}
+              slipImg ={el.slipImg}
               history={history}
             />
           ))}
@@ -66,6 +67,7 @@ const history = () =>{
               key={el.id}
               id={el.id}
               total_price={el.total_price}
+              slipImg ={el.slipImg}
               payment_status={el.payment_status}
               
             />

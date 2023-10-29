@@ -2,7 +2,7 @@
 export default function Status({approveOrder}) {
   return (
     <div className="flex flex-row text-center gap-10">
-    <div>{approveOrder ? 'ยืนยันออเดอร์':'รอคอนเฟิร์ม'}</div>
+    <div>{approveOrder ? 'จัดส่งสินค้า':'รอคอนเฟิร์ม'}</div>
     <button> Confirm Order</button>
   </div>
   )

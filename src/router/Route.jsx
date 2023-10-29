@@ -8,18 +8,14 @@ import CartPage from "../pages/CartPage.jsx";
 
 import Authenticated from "../features/auth/Authenticated.jsx";
 
-import RegisterPage from "../pages/RegisterPage.jsx";
-import AdminOne from "../pagesadmin/AdminOne.jsx";
 
 import AdminAuthenticated from "../features/auth/AdminAuthenticated.jsx";
 import LayoutAdmin from "../layout/LayoutAdmin.jsx";
 
 
 import InventoryAdmin from "../pagesadmin/InventoryAdmin.jsx";
-import UserProductPage from "../pageuser/UserProductPage.jsx";
-import AdminProductPage from "../pagesadmin/productpage/AdminProductPage.jsx";
-import OrderContextProvider, { OrderContext } from "../contexts/OrderContext.jsx";
-
+import OrderContextProvider from "../contexts/OrderContext.jsx";
+import CheckOrder from '../pagesadmin/orderpage/CheckOrder.jsx'
 const router = createBrowserRouter([
   {
     path: "/admin",
@@ -32,6 +28,7 @@ const router = createBrowserRouter([
       { path: "/admin", element: <HomePage /> },
       { path: "/admin/productpage", element: <ProductPage/> },
       { path: "/admin/inventory/", element: <InventoryAdmin /> },
+      { path : "/admin/checkorder",element:<CheckOrder/> }
     ],
   },
   {

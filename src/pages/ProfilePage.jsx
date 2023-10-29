@@ -16,6 +16,8 @@ export default function ProfilePage() {
     return acc;
   }, 0);
 
+  console.log('aaaa',totaFormOrder)
+
 const history = () =>{
   axios
       .get("/order/status")
@@ -32,9 +34,9 @@ const history = () =>{
   useEffect(() => {
     history()
   }, []);
-  console.log(checkingPayment);
-  console.log(statusPayment);
-
+  console.log('statusPayment',statusPayment);
+  
+  console.log('checkingPayment',checkingPayment);
   return (
     <>
       <div className="flex justify-center flex-col items-center  border-2 border-blue-200">

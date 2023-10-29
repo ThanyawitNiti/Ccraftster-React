@@ -44,6 +44,19 @@ export default function AdminContextProvider({children}) {
     }
   }
 
+  const approve = () =>{
+    axios
+        .get("/admin/status")
+        .then((res) => {
+          console.log(res)
+          const ress =res.data.statusPayment;
+          return ress
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+  }
+
   useEffect(() => {
     axios
       .get("/productpage")
@@ -58,7 +71,7 @@ export default function AdminContextProvider({children}) {
 
   return (
     <>
-    <AdminContext.Provider value={{allItem,deleteProduct,uploadProduct,setAllItem,editProduct,setIsOpen,isOpen}}>
+    <AdminContext.Provider value={{allItem,deleteProduct,uploadProduct,setAllItem,editProduct,setIsOpen,isOpen,approve}}>
         {children}
     </AdminContext.Provider>      
     

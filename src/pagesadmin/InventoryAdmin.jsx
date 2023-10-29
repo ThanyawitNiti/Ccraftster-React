@@ -1,7 +1,6 @@
-import { useEffect } from "react";
-import axios from "../config/axios";
+
 import AddItem from "./AddItem";
-import { useState } from "react";
+
 import ListItem from "./ListItem";
 
 export default function InventoryAdmin() {

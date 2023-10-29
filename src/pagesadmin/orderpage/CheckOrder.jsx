@@ -11,6 +11,7 @@ export default function CheckOrder() {
   const [approveOrder, setapproveOrder] = useState([]);
 
   console.log(approveOrder);
+
   const approve = () => {
     axios
       .get("/admin/status")
@@ -59,9 +60,10 @@ export default function CheckOrder() {
       </div>
 
       <div>
-        <div className="border-b-2 border-cdGreen">Total Payment</div>
+        <div className="border-b-2 border-cdGreen">Status Payment</div>
         {approveOrder.map((el) => (
-          <Status key={el.id} approveOrder={el.payment_status} />
+          <Status key={el.id} statusOrder={el.payment_status} id={el.id} 
+          approve={approve} />
         ))}
       </div>
 

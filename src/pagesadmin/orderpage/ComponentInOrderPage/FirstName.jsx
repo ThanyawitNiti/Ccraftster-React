@@ -1,10 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export default function FirstName() {
+export default function FirstName({ approveOrder }) {
   return (
-    <div className="flex flex-col text-center gap-2">
-    <div>Firstname</div>
-    <div>Palm</div>
-  </div>
-  )
+    <div className="flex flex-col text-center ">
+      <div>{approveOrder}</div>
+    </div>
+  );
 }

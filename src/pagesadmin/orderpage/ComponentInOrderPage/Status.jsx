@@ -1,10 +1,9 @@
-import React from 'react'
 
-export default function Status() {
+export default function Status({approveOrder}) {
   return (
-    <div className="flex flex-col text-center gap-2">
-    <div>Status</div>
-    <div>False</div>
+    <div className="flex flex-row text-center gap-10">
+    <div>{approveOrder ? 'ยืนยันออเดอร์':'รอคอนเฟิร์ม'}</div>
+    <button> Confirm Order</button>
   </div>
   )
 }

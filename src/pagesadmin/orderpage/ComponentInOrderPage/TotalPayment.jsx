@@ -1,10 +1,8 @@
-import React from "react";
 
-export default function TotalPayment() {
+export default function TotalPayment({approveOrder}) {
   return (
     <div className="flex flex-col text-center gap-2">
-      <div>TotalPayment(baht)</div>
-      <div>500</div>
+      <div>{approveOrder}</div>
     </div>
   );
 }

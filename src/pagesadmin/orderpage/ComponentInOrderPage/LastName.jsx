@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function LastName() {
+export default function LastName({approveOrder}) {
   return (
-    <div className="flex flex-col text-center gap-2">
-    <div>Lastname</div>
-    <div>Palm</div>
+    <div className="flex flex-col text-center">
+    <div>{approveOrder}</div>
   </div>
   )
 }
+

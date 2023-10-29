@@ -25,10 +25,8 @@ useEffect(() => {
 
 const sendCartToOrder = async (data) =>{
    try{
-    console.log('nmhjhjkhjhj')
     const req = await axios.post('/order',data)
     console.log(req)
-    
     setIsRefresh(!isRefresh)
   }catch(err){
     console.log(err.response.data)

@@ -4,7 +4,7 @@ import {useAuth} from "../../hooks/use-auth"
 export default function Authenticated({children}) {
     const {checkUser} =useAuth()
 
-    console.log("555555555555555555555555")
+    
 
 
     if(!checkUser ){

@@ -4,6 +4,7 @@ export default function ButtonIncrease({objIdInArray,setProductAmount}) {
     const { addProductToCart} = useProductContext()
   
     const handleIncrease =()=>{
+      console.log('dasdadads')
       setProductAmount(amount=>amount+1)
       addProductToCart(objIdInArray)
     }

@@ -15,6 +15,8 @@ export default function DetailCart({
 }) {
   const [productAmount, setProductAmount] = useState(amount);
 
+console.log(productAmount)
+
   useEffect(() => {
     axios
       .get("/user/cartpage")
@@ -33,14 +35,12 @@ const {deleteProductInCart} =useProductContext()
     deleteProductInCart(objIdInArray);
   };
 
-  // if(productAmount <1){
-  //   console.log('first')
-  //   setProductAmount(0)
-  //   // if(productAmount == 0){
-      
-    
-
-  // }
+  if(productAmount >1){
+    console.log('first')
+    // setProductAmount(amount)
+    // console.log(productAmount,productAmount)
+    // if(productAmount == 0){
+      }
 
   return (
     <>
@@ -58,6 +58,7 @@ const {deleteProductInCart} =useProductContext()
                   objIdInArray={objIdInArray}
                   setProductAmount={setProductAmount}
                   productAmount={productAmount}
+                  amount={amount}
                 />
               </div>
               {productAmount}

@@ -5,6 +5,7 @@ import LastName from "./ComponentInOrderPage/LastName";
 import Phone from "./ComponentInOrderPage/Phone";
 import TotalPayment from "./ComponentInOrderPage/TotalPayment";
 import Status from "./ComponentInOrderPage/Status";
+import SlipImg from "./ComponentInOrderPage/slipImg";
 
 export default function CheckOrder() {
   const [approveOrder, setapproveOrder] = useState([]);
@@ -62,6 +63,15 @@ export default function CheckOrder() {
         {approveOrder.map((el) => (
           <Status key={el.id} approveOrder={el.payment_status} />
         ))}
+      </div>
+
+      <div>
+        <div className="flex flex-col gap-1">
+          <div className="border-b-2 border-cdGreen">Slip</div>
+          {approveOrder.map((el) => (
+            <SlipImg key={el.id} approveOrder={el.slipImg} />
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@ import Status from "./ComponentInOrderPage/Status";
 import SlipImg from "./ComponentInOrderPage/slipImg";
 
 export default function CheckOrder() {
+  const [allPayment,setAllPayment] = useState([])
   const [approveOrder, setapproveOrder] = useState([]);
   const [confirmOrder,setConfirmOrder] = useState([])
 
@@ -22,6 +23,7 @@ export default function CheckOrder() {
         console.log(res);
         setapproveOrder(res.data.statusPayment);
         setConfirmOrder(res.data.getApprovePaymentTrue)
+        setAllPayment(res.data.findAllStatusPayment)
       })
       .catch((err) => {
         console.log(err);
@@ -32,40 +34,41 @@ export default function CheckOrder() {
     approve();
   }, []);
 
-  console.log(approveOrder);
+  // console.log(approveOrder);
+  console.log(allPayment)
 
   return (
     <div className="border-2 border-cGreen w-full max-h-screen flex flex-row justify-between py-3 px-10 mt-2 text-center">
       <div>
         <div className="border-b-2 border-cdGreen">Firstname</div>
-        {approveOrder.map((el) => (
+        {allPayment.map((el) => (
           <FirstName key={el.id} approveOrder={el.user.first_name} />
         ))}
       </div>
 
       <div>
         <div className="border-b-2 border-cdGreen">Lastname</div>
-        {approveOrder.map((el) => (
+        {allPayment.map((el) => (
           <LastName key={el.id} approveOrder={el.user.last_name} />
         ))}
       </div>
 
       <div>
         <div className="border-b-2 border-cdGreen">Phone</div>
-        {approveOrder.map((el) => (
+        {allPayment.map((el) => (
           <Phone key={el.id} approveOrder={el.user.phone} />
         ))}
       </div>
       <div>
         <div className="border-b-2 border-cdGreen">Total Payment</div>
-        {approveOrder.map((el) => (
+        {allPayment.map((el) => (
           <TotalPayment key={el.id} approveOrder={el.total_price} />
         ))}
       </div>
 
       <div>
         <div className="border-b-2 border-cdGreen">Status Payment</div>
-        {approveOrder.map((el) => (
+        {allPayment.map((el) => (
           <Status key={el.id} statusOrder={el.payment_status} id={el.id} 
           approve={approve} />
         ))}
@@ -74,7 +77,7 @@ export default function CheckOrder() {
       <div>
         <div className="flex flex-col ">
           <div className="border-b-2 border-cdGreen">Slip</div>
-          {approveOrder.map((el) => (
+          {allPayment.map((el) => (
             <SlipImg key={el.id} approveOrder={el.slipImg} />
           ))}
         </div>

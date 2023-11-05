@@ -9,15 +9,19 @@ import SlipImg from "./ComponentInOrderPage/slipImg";
 
 export default function CheckOrder() {
   const [approveOrder, setapproveOrder] = useState([]);
+  const [confirmOrder,setConfirmOrder] = useState([])
 
   console.log(approveOrder);
 
+
+  console.log(confirmOrder)
   const approve = () => {
     axios
       .get("/admin/status")
       .then((res) => {
         console.log(res);
         setapproveOrder(res.data.statusPayment);
+        setConfirmOrder(res.data.getApprovePaymentTrue)
       })
       .catch((err) => {
         console.log(err);
@@ -68,7 +72,7 @@ export default function CheckOrder() {
       </div>
 
       <div>
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col ">
           <div className="border-b-2 border-cdGreen">Slip</div>
           {approveOrder.map((el) => (
             <SlipImg key={el.id} approveOrder={el.slipImg} />

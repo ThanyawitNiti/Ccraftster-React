@@ -13,9 +13,7 @@ const updateOrderStatus = async (orderId) =>{
 }
 
 const handleClick  = () =>{
-
     updateOrderStatus(id)
-
     approve()
 
 }
@@ -24,7 +22,7 @@ console.log(statusOrder)
 console.log(id)
 
   return (
-    <div className="flex flex-row text-center gap-10 h-10">
+    <div className="flex flex-row text-center gap-10 h-10 ">
     <div>{statusOrder ? 'จัดส่งสินค้า':'รอคอนเฟิร์ม'}</div>
     <button onClick={handleClick}> Confirm Order</button>
   </div>

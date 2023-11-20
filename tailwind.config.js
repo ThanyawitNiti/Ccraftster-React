@@ -11,7 +11,7 @@ export default {
         cdGreen:"#5cc4cd",
       },
       backgroundImage:{
-      heroPattern:"url('src/assets/Pics/Logo/384484119_763470438921593_536146005452694962_n.jpg')",
+      heroPattern:"url('/src/assets/Pics/Logo/Fabric 150x150cm copy.jpg')",
       }
   },
   plugins: [],

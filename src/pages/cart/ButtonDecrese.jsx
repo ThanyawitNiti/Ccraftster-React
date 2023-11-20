@@ -11,11 +11,14 @@ export default function ButtonDecrese({objIdInArray,setProductAmount,productAmou
     }
   }
 
-  console.log(productAmount)
+  console.log(productAmount,'Bottomdecrease')
   return (
-    <div>
+    <div className="bg-red-300 w-8 rounded-full">
       <button
-      onClick={handleDecrease}>-</button>
+      onClick={handleDecrease}
+      className="font-semibold w-full"
+      >-</button>
+      
     </div>
   );
 }

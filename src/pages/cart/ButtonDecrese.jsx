@@ -6,7 +6,7 @@ export default function ButtonDecrese({objIdInArray,setProductAmount,productAmou
   const handleDecrease =()=>{
     if(productAmount >0){
       setProductAmount(amount=>amount-1)
-      addProductToCart(objIdInArray)
+      // addProductToCart(objIdInArray)
       decreaseProductInCart(objIdInArray)
     }
   }

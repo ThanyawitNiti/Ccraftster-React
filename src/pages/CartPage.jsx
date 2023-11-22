@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 export default function CartPage() {
   const { checkUser } = useAuth();
   const [showOrder, setShowOrder] = useState([]);
+  const[total,setTotal] = useState("")
   
   if (!checkUser) {
     return <Navigate to="/login" />;
@@ -24,22 +25,23 @@ export default function CartPage() {
       .get("/user/cartpage")
       .then((res) => {
         setShowOrder(res.data.showItemToUser);
+        setTotal(res.data.grandTotal)
       })
       .catch((err) => {
         console.log(err);
       });
   }, [isRefresh]);
-
-  const grandTotal = showOrder?.reduce((acc, item) => {
-    let total = item.amount * item.product.price;
-    acc += total;
-    return acc;
-  }, 0);
-
+console.log('total',total)
+  // const grandTotal = showOrder?.reduce((acc, item) => {
+  //   let total = item.amount * item.product.price;
+  //   acc += total;
+  //   return acc;
+  // }, 0);
+// console.log(grandTotal,'bbbbbbbbbbb')
   const productIdInCart = showOrder.map((el)=>el.product_id)
 
 
-console.log(showOrder)
+console.log(showOrder,"55555555")
 
   const handleClickPay = () => {
     sendCartToOrder(showOrder);
@@ -65,6 +67,7 @@ console.log(showOrder)
               objIdInArray={el.product_id}
               showOrder={showOrder}
               setShowOrder={setShowOrder}
+              setTotal={setTotal}
             />
           ))}
         </table>
@@ -72,7 +75,8 @@ console.log(showOrder)
 
       <div className="flex mt-3 justify-center">
         <div className="text-center w-20 border-2 border-red-200 rounded-md">
-          Total : {grandTotal}
+          Total : {total}
+          {/* Total : {total} */}
         </div>
         <div></div>
       </div>

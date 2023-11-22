@@ -12,24 +12,29 @@ export default function DetailCart({
   objIdInArray,
   showOrder,
   setShowOrder,
+  setTotal
 }) {
   const [productAmount, setProductAmount] = useState(amount);
 
-console.log(productAmount)
+  
+// console.log(typeof productAmount,"<<<<<<<productAmount")
+// console.log(typeof price,"pricezzzzzzzzz")
+// const pricetest = productAmount * price
+// console.log(pricetest)
 
-  useEffect(() => {
-    axios
-      .get("/user/cartpage")
-      .then((res) => {
-        setShowOrder(res.data.showItemToUser); 
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  },[] );
+  // useEffect(() => {
+  //   axios
+  //     .get("/user/cartpage")
+  //     .then((res) => {
+  //       setShowOrder(res.data.showItemToUser); 
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // },[] );
 
  
-  console.log(showOrder);
+  // console.log(showOrder);
 const {deleteProductInCart} =useProductContext()
   const handleDeleteClick = async () => {
     deleteProductInCart(objIdInArray);

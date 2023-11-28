@@ -13,9 +13,9 @@ export default function CartPage() {
   const [showOrder, setShowOrder] = useState([]);
   const[total,setTotal] = useState("")
   
-  if (!checkUser) {
-    return <Navigate to="/login" />;
-  }
+  // if (!checkUser) {
+  //   return <Navigate to="/login" />;
+  // }
 
   const { isRefresh,deleteProductInCart } = useProductContext();
   const { sendCartToOrder } = useOrderContext();

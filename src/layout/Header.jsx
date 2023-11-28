@@ -73,7 +73,10 @@ export default function Header() {
                 <li >
                   <Link
                     to="/cartpage"
-                    className="block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white focus:ring-1 focus:bg-yellow-100  hover:text-red-400"
+                    className= {` ${
+                      checkUser ? "" : "hidden"
+                    }
+                    block py-2 pr-4 pl-3 text-black rounded bg-primary-700 lg:bg-transparent lg:text-primary-700 lg:p-0 dark:text-white focus:ring-1 focus:bg-yellow-100  hover:text-red-400`}
                   >
                     Cart
                   </Link>

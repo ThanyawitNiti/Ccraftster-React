@@ -38,7 +38,7 @@ export default function CheckOrder() {
   console.log(allPayment)
 
   return (
-    <div className="border-2 border-cGreen w-full max-h-screen flex flex-row justify-between py-3 px-10 mt-2 text-center">
+    <div className="border-2 border-cGreen w-full min-h-screen flex flex-row justify-between py-3 px-10 mt-2 text-center">
       <div>
         <div className="border-b-2 border-cdGreen">Firstname</div>
         {allPayment.map((el) => (

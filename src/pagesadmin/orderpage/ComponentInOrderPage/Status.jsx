@@ -20,11 +20,10 @@ const handleClick  = () =>{
 
 console.log(statusOrder)
 console.log(id)
-
   return (
-    <div className="flex flex-row text-center gap-10 h-10 ">
-    <div>{statusOrder ? 'จัดส่งสินค้า':'รอคอนเฟิร์ม'}</div>
-    <button onClick={handleClick}> Confirm Order</button>
+    <div className="flex flex-row text-center gap-3 my-2">
+    <div className={`${statusOrder? "bg-green-400 rounded-md px-2" : "bg-red-400 rounded-md px-2"}`}>{statusOrder ? 'จัดส่งสินค้า':'รอคอนเฟิร์ม'}</div>
+    <button onClick={handleClick} className=" bg-slate-300 rounded-lg px-4">ยืนยันออเดอร์</button>
   </div>
   )
 }

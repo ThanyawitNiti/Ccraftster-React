@@ -12,10 +12,6 @@ export default function CheckOrder() {
   const [approveOrder, setapproveOrder] = useState([]);
   const [confirmOrder,setConfirmOrder] = useState([])
 
-  console.log(approveOrder);
-
-
-  console.log(confirmOrder)
   const approve = () => {
     axios
       .get("/admin/status")
@@ -35,8 +31,6 @@ export default function CheckOrder() {
   }, []);
 
   // console.log(approveOrder);
-  console.log(allPayment)
-
   return (
     <div className="border-2 border-cGreen w-full min-h-screen flex flex-row justify-between py-3 px-10 mt-2 text-center">
       <div>

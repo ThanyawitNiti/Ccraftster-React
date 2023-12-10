@@ -13,10 +13,10 @@ export default function ButtonDecrese({objIdInArray,setProductAmount,productAmou
 
   console.log(productAmount,'Bottomdecrease')
   return (
-    <div className="bg-red-300 w-8 rounded-full">
+    <div className="bg-red-300 w-6 h-6 rounded-sm flex items-center justify-center  hover:bg-red-500">
       <button
       onClick={handleDecrease}
-      className="font-semibold w-full"
+      className="font-extrabold text-2xl"
       >-</button>
       
     </div>

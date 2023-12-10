@@ -9,16 +9,14 @@ export const AdminContext = createContext()
 
 export default function AdminContextProvider({children}) {
   const [allItem, setAllItem] = useState([]);
-
   const [isOpen,setIsOpen] = useState(false)
-
-
 
   const uploadProduct = async (data) => {
     const res = await axios.post("/admin", data);
     const newItem = res.data.addItem;
     setAllItem([newItem, ...allItem]);
   };
+
   const deleteProduct = async (productId) => {
     try {
       await axios.delete(`/admin/${productId}`);
@@ -33,12 +31,9 @@ export default function AdminContextProvider({children}) {
       const res = await axios.patch(`/admin/${productId}`,data)
       const editProduct = res.data.doneEditProductByAdmin
       console.log(res)
-
       const indexEditProduct =allItem.findIndex((el)=>el.id == editProduct.id)
       allItem.splice(indexEditProduct,1,editProduct)
-
       setAllItem([...allItem])
-
     } catch(err){
       console.log(err)
     }

@@ -8,7 +8,7 @@ export default function Modal({ title, open, onClose, children,maxWidth }) {
             <div className="flex justify-center items-center min-h-full p-4">
 
               <div
-                className="rounded-lg w-full bg-yellow-50 shadow-2xl border-2 border-yellow-300"
+                className="rounded-lg w-1/4 bg-green-50 shadow-2xl border-2 border-yellow-600"
                 style={{ maxWidth: `${maxWidth}rem` }} >
                 
                 <div className="flex justify-between p-4 text-xl border-b">

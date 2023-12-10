@@ -38,14 +38,14 @@ export default function ProfilePage() {
   console.log("checkingPayment", checkingPayment);
   return (
     <>
-      <div className="flex justify-start flex-row items-center  border-2 border-blue-200">
-        <div className="border-2 border-green-200 flex flex-col   items-center py-10 gap-3 ">
-          <div className="w-100 h-100 border-2 border-black">
+      <div className="flex justify-start flex-row items-center">
+        <div className=" px-2 ">
+          <div className="w-100 h-100 ">
             <img src="src\assets\Screenshot 2023-11-20 222159.png" />
           </div>
         </div>
-        <div className="border-2 border-red-400 w-full flex flex-col ">
-          <div className="  justify-evenly items-center gap-3 w-full border-2 border-blue-500 pl-5">
+        <div className="border-2 border-cGreen w-full flex flex-col py-4 px-3 gap-4 bg-yellow-50 my-4 mx-4">
+          <div className="  justify-evenly items-center w-full border-2 border-blue-500 pl-5 bg-blue-50 rounded-lg ">
             {statusPayment.map((el) => (
               <OrderList
                 key={el.id}
@@ -57,8 +57,8 @@ export default function ProfilePage() {
               />
             ))}
           </div>
-          <div className="border-2 border-black flex flex-col justify-evenly items-center gap-3 w-full">
-            <div className="font-semibold pt-2">Payment History</div>
+          <div className="border-2 border-black flex flex-col justify-evenly items-center gap-5 w-full py-2">
+            <div className="font-semibold  px-2 bg-yellow-500 rounded-md text-lg py-1">Payment History</div>
             {checkingPayment.map((el) => (
               <HistoryOrder
                 key={el.id}

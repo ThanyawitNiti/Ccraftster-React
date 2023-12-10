@@ -24,7 +24,6 @@ const validateRegister = (input) => {
   const { error } = registerSchema.validate(input, {
     abortEarly: true,
   });
-
   if (error) {
     // console.log(error.details[1].message);
     const result = error.details.reduce((acc, el) => {
@@ -36,6 +35,7 @@ const validateRegister = (input) => {
   }
 };
 
+
 export default function RegisterForm() {
   const [input, setInput] = useState({
     first_name: "",
@@ -46,7 +46,7 @@ export default function RegisterForm() {
     confirmPassword: "",
   });
 
-  //   console.log(input)
+    // console.log(input)
   const [error, setError] = useState({});
 
   const { register } = useAuth();
@@ -56,12 +56,14 @@ export default function RegisterForm() {
     const validationErrorObj = validateRegister(input, {
       abortEarly: true,
     });
+    // console.log(validationErrorObj)
     if (validationErrorObj) {
+      validationErrorObj.last_name = "Last name is not allowed to be empty"
       validationErrorObj.email = "Email should contain @example.com"
       validationErrorObj.phone = "Phone is not allowed to be empty and must be 'number'"
       validationErrorObj.password =
-        "Sorry na !!! Password must contain least one letter, one number and one special character.";
-      validationErrorObj.confirmPassword = "Password Do not match Bro!!";
+        "Password must contain least one letter, one number and one special character.";
+      validationErrorObj.confirmPassword = "Password Do not match ";
       return setError(validationErrorObj);
     }
     setError({});
@@ -74,7 +76,7 @@ export default function RegisterForm() {
   const handleChangeInput = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
   };
-
+console.log(error)
   return (
     <>
       <form
@@ -149,8 +151,8 @@ export default function RegisterForm() {
           <InputErrorMessage message={error.confirmPassword} />
         )}
 
-        <div className="gap-2 mt-5 flex flex-col bordeborder-red-400 items-center  w-full">
-          <button className=" bg-green-300 w-52 h-10 rounded-md hover:bg-green-500">
+        <div className="gap-2 mt-5 flex flex-col  items-center  w-full">
+          <button className=" bg-green-300 w-52 h-10 rounded-md hover:bg-green-500 hover:font-semibold">
             Create Account
           </button>
         </div>

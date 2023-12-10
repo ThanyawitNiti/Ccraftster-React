@@ -1,6 +1,5 @@
-import { useState, useEffect } from "react";
+
 import { useProductContext } from "../../hooks/product-context-hook";
-import axios from "../../config/axios";
 
 export default function Card({ productObj }) {
   const { addProductToCart } = useProductContext();
@@ -24,7 +23,8 @@ export default function Card({ productObj }) {
         </div>
         <div className="flex flex-row justify-between px-4">
           <div className="font-bold">{productObj.price} Baht</div>
-          <button className="border-2 border-cdGreen bg-cdGreen rounded-md px-3 mb-1 font-semibold hover:bg-green-500 hover:font-extrabold" 
+          <button className=" bg-cdGreen rounded-md px-3 mb-1 font-semibold border-2  hover:bg-green-500 hover:font-extrabold hover:border-green-900
+          transition delay-300 duration-300 ease-in-out" 
           onClick={handleClickBuy}>Add to Cart</button>
         </div>
       </div>

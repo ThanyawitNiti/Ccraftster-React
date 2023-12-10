@@ -26,19 +26,19 @@ export default function OrderList({ id, total_price, history, slipImg }) {
 
   console.log(file);
   return (
-    <div className="flex gap-10">
-      <div>Total Price : {total_price}</div>
-      <div className="flex ">
+    <div className="flex gap-12 py-2 ">
+      <div className="font-bold ">Total Price : {total_price}</div>
+      <div className="flex font-bold gap-1 w-1/4">
         <div>StatusPayment :</div>
         <div className={`${slipImg ? "text-green-500" : "text-red-500"}`}>
-          {slipImg ? "รอแอดมินตรวจสอบสลิปก่อนนะ" : "สั่งเพลิน อย่าลืมโอน"}
+          {slipImg ? "รอแอดมินตรวจสอบ" : " รอการชำระเงิน "}
         </div>
       </div>
       {loading && <Loading />}
-      <form className="w-10" onSubmit={handdlesubmitForm}>
-        <div className="flex flex-row gap-5">
+      <form className="w-10 " onSubmit={handdlesubmitForm}>
+        <div className="flex flex-row gap-5 ">
           <div>
-            <button className=" border-2 border-green-200 w-40 bg-cGreen">
+            <button className=" border-2 border-green-200 w-40 bg-green-600 rounded-lg text-white ">
               Upload Slip
             </button>
           </div>

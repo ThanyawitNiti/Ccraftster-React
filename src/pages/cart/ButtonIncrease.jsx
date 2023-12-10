@@ -8,9 +8,9 @@ export default function ButtonIncrease({objIdInArray,setProductAmount}) {
       addProductToCart(objIdInArray)
     }
   return (
-    <div className="bg-green-300 w-8 rounded-full mb-1">
+    <div className="bg-green-300 w-6 h-6 rounded-sm">
         <button onClick={handleIncrease}
-        className="font-semibold w-full mb-0.5">
+        className=" w-full mb-0.5 font-extrabold text-2 hover:bg-green-600">
         +
         </button>
     </div>

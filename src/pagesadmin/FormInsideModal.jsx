@@ -3,17 +3,17 @@ import { useAdminContext } from "../hooks/admin-context-hook";
 
 export default function FormInsideModal({ onSuccess, itemObj }) {
   // console.log(itemObj.id)
+  const { editProduct } = useAdminContext();
   const [newProductState, setNewProductState] = useState({
-    product_name: "",
-    price: "",
-    category: "",
+    product_name:itemObj.product_name,
+    price:itemObj.price,
+    category:itemObj.category,
   });
 
   const handleChangeInput = (e) => {
     setNewProductState({ ...newProductState, [e.target.name]: e.target.value });
   };
 
-  const { editProduct } = useAdminContext();
 
   const handleSubmitEdit = async (e) => {
     try {

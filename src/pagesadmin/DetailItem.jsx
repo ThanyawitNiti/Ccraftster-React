@@ -8,40 +8,37 @@ export default function DetailItem({ itemObj }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleClcikDelete = () => {
-    console.log(itemObj.id)
     deleteProduct(itemObj.id);
-    
   };
 
   return (
     <>
-      <tbody className="border border-gray-300">
-        <tr>
-          <td className="text-center">{itemObj.product_name}</td>
-          <td className="text-center">{itemObj.price}</td>
-          <td className="text-center">{itemObj.category}</td>
-          <td className="flex justify-center">
+      <tbody  >
+        <tr >
+          <td className="text-center border border-slate-300">{itemObj.product_name}</td>
+          <td className="text-center border border-slate-300">{itemObj.price}</td>
+          <td className="text-center border border-slate-300">{itemObj.category}</td>
+          <td className="flex justify-center border border-slate-300">
             <img className="w-14 h-14" src={itemObj.img_url} />
           </td>
-          <td className="border-2 border-gray-300 w-10 mx-3">
-            <button className="mx-3" onClick={handleClcikDelete}>
+          <td className=" text-center bg-red-500 rounded-lg ">
+            <button  className="text-xl text-center" onClick={handleClcikDelete}>
               Delete
             </button>
           </td>
           <td
-            className="border-2 border-gray-300 w-10 mx-3"
+            className="  text-center bg-gray-200 rounded-lg text-xl"
             onClick={() => setIsOpen(true)}
           >
             Edit
             <Modal
               title="Edit Product"
               open={isOpen}
-           
               onClose={() => {
-                setIsOpen(()=>{setIsOpen(false)})}}
-
-              
-                
+                setIsOpen(() => {
+                  setIsOpen(false);
+                });
+              }}
             >
               <FormInsideModal
                 onSuccess={() => setIsOpen(false)}

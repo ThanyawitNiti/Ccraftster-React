@@ -8,7 +8,7 @@ export default function InventoryAdmin() {
   return (
     <>
       <div>
-        <div className="flex  justify-center pt-3 pb-3">
+        <div className="flex justify-center pt-3 pb-3">
           <AddItem  />
         </div>
         <ListItem  />

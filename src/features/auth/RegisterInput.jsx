@@ -11,7 +11,7 @@ export default function RegisterInput({
         value={value}
         onChange={onChange}
         name={name}
-        className="border border-green-400 rounded-sm w-60 h-9"/>
+        className="border border-green-400 rounded-xl w-80 h-10 py-3"/>
 
     )
 }
